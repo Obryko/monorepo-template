@@ -48,6 +48,7 @@
   "peerDependencies": {
     "@nestjs/common": ">=11.0.0",
     "@nestjs/core": ">=11.0.0",
+    "@nestjs/terminus": ">=10.0.0",
     "fastify": ">=5.0.0",
     "nestjs-pino": ">=4.0.0",
     "pino-http": ">=10.0.0"
@@ -57,6 +58,9 @@
       "optional": true
     },
     "@nestjs/core": {
+      "optional": true
+    },
+    "@nestjs/terminus": {
       "optional": true
     },
     "nestjs-pino": {
@@ -72,6 +76,7 @@
     "@monorepo-template/typescript-config": "workspace:*",
     "@nestjs/common": "^11.0.0",
     "@nestjs/core": "^11.0.0",
+    "@nestjs/terminus": "^11.0.0",
     "@types/node": "catalog:",
     "fastify": "^5.0.0",
     "nestjs-pino": "^4.2.0",
