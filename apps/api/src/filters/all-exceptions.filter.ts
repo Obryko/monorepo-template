@@ -32,7 +32,9 @@ export class AllExceptionsFilter implements ExceptionFilter {
         : (exception instanceof HttpException ? exception.message : 'Internal Server Error')
 
     if (statusCode === HttpStatus.INTERNAL_SERVER_ERROR) {
-      this.logger.error(exception)
+      const msg = exception instanceof Error ? exception.message : String(exception)
+      const stack = exception instanceof Error ? exception.stack : undefined
+      this.logger.error(msg, stack)
     }
 
     void response.status(statusCode).send({ statusCode, error, message })
