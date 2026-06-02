@@ -1,0 +1,60 @@
+{
+  "name": "monorepo-template",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "packageManager": "pnpm@11.5.1",
+  "keywords": [],
+  "author": {
+    "name": "Kacper Obrycki",
+    "email": "kacperobrycki@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Obryko/monorepo-template.git"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "build:internal": "pnpm --filter @monorepo-template/contracts build && pnpm --filter @monorepo-template/env build && pnpm --filter @monorepo-template/observability build",
+    "typecheck:workspaces": "pnpm --filter '@monorepo-template/*' --if-present typecheck",
+    "typecheck": "pnpm build:internal && pnpm typecheck:workspaces",
+    "test:workspaces": "pnpm --filter '@monorepo-template/*' --if-present test",
+    "test": "pnpm build:internal && pnpm test:workspaces",
+    "test:e2e:workspaces": "pnpm --filter '@monorepo-template/*' --if-present test:e2e",
+    "test:e2e": "pnpm build:internal && pnpm test:e2e:workspaces",
+    "test:e2e:web": "pnpm build:internal && pnpm --filter @monorepo-template/web test:e2e",
+    "build": "pnpm --filter '@monorepo-template/*' --if-present build",
+    "build:api": "pnpm --filter @monorepo-template/api... build",
+    "build:web": "pnpm --filter @monorepo-template/web... build",
+    "dev:web": "pnpm --filter @monorepo-template/web dev",
+    "dev:api": "pnpm --filter @monorepo-template/api dev",
+    "precommit:typecheck": "pnpm build:internal && pnpm typecheck:workspaces",
+    "prepush:test": "pnpm build:internal && pnpm test:workspaces",
+    "affected:check": "pnpm --filter='...[HEAD]' --if-present check",
+    "affected:check:fix": "pnpm --filter='...[HEAD]' --if-present check:fix",
+    "affected:typecheck": "pnpm build:internal && pnpm --filter='...[HEAD]' --if-present typecheck",
+    "affected:test": "pnpm build:internal && pnpm --filter='...[HEAD]' --if-present test",
+    "affected:test:e2e": "pnpm build:internal && pnpm --filter='...[HEAD]' --if-present test:e2e",
+    "ci:affected:check": "pnpm --filter='...[origin/main]' --if-present check",
+    "ci:affected:typecheck": "pnpm build:internal && pnpm --filter='...[origin/main]' --if-present typecheck",
+    "ci:affected:test": "pnpm build:internal && pnpm --filter='...[origin/main]' --if-present test",
+    "ci:affected:test:e2e": "pnpm build:internal && pnpm --filter='...[origin/main]' --if-present test:e2e"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,jsonc,css,md}": [
+      "biome check --write --no-errors-on-unmatched"
+    ]
+  },
+  "devDependencies": {
+    "@biomejs/biome": "catalog:",
+    "@monorepo-template/contracts": "workspace:*",
+    "@monorepo-template/observability": "workspace:*",
+    "@monorepo-template/linter": "workspace:*",
+    "@monorepo-template/typescript-config": "workspace:*",
+    "husky": "^9.1.7",
+    "lint-staged": "17.0.7",
+    "vitest": "catalog:"
+  }
+}
