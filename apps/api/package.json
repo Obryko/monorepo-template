@@ -17,17 +17,22 @@
     "test:e2e:watch": "vitest --config vitest.e2e.config.ts"
   },
   "dependencies": {
+    "@fastify/swagger": "^9.0.0",
+    "@fastify/swagger-ui": "^5.0.0",
     "@monorepo-template/contracts": "workspace:*",
     "@monorepo-template/env": "workspace:*",
     "@monorepo-template/observability": "workspace:*",
     "@nestjs/common": "^11.1.24",
     "@nestjs/core": "^11.1.24",
     "@nestjs/platform-fastify": "^11.1.24",
+    "@nestjs/swagger": "^11.0.0",
     "@nestjs/terminus": "^11.0.0",
+    "@nestjs/throttler": "^6.0.0",
     "nestjs-pino": "^4.2.0",
     "pino-http": "^10.4.0",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.2"
+    "rxjs": "^7.8.2",
+    "zod-openapi": "^4.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
