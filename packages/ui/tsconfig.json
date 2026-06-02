@@ -5,6 +5,7 @@
     "jsx": "react-jsx",
     "lib": ["ES2024", "DOM", "DOM.Iterable"],
     "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "paths": {
       "@monorepo-template/ui/src/components": ["./src/components"],
       "@monorepo-template/ui/src/lib/utils": ["./src/lib/utils.ts"],

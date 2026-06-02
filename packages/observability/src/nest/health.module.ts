@@ -1,9 +1,9 @@
 import { type DynamicModule, Module } from '@nestjs/common'
-import { TerminusModule } from '@nestjs/terminus'
+import { type HealthIndicatorFunction, TerminusModule } from '@nestjs/terminus'
 import { HealthController } from './health.controller.ts'
 
 export interface HealthModuleOptions {
-  indicators?: (() => Promise<unknown>)[]
+  indicators?: HealthIndicatorFunction[]
   memoryHeapThreshold?: number
   memoryRssThreshold?: number
 }

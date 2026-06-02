@@ -1,5 +1,10 @@
 import { Controller, Get, Inject } from '@nestjs/common'
-import { HealthCheck, HealthCheckService, MemoryHealthIndicator } from '@nestjs/terminus'
+import {
+  HealthCheck,
+  HealthCheckService,
+  MemoryHealthIndicator,
+  type HealthIndicatorFunction,
+} from '@nestjs/terminus'
 import type { HealthModuleOptions } from './health.module.ts'
 
 @Controller('health')
@@ -12,10 +17,10 @@ export class HealthController {
 
   @Get()
   @HealthCheck()
-  check() {
+  check(): Promise<unknown> {
     const heapThreshold = this.options.memoryHeapThreshold ?? 314_572_800
     const rssThreshold = this.options.memoryRssThreshold ?? 314_572_800
-    const defaultChecks = [
+    const defaultChecks: HealthIndicatorFunction[] = [
       () => this.memory.checkHeap('memory_heap', heapThreshold),
       () => this.memory.checkRSS('memory_rss', rssThreshold),
     ]
