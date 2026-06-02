@@ -4,7 +4,13 @@
     "outDir": "dist",
     "jsx": "react-jsx",
     "lib": ["ES2024", "DOM", "DOM.Iterable"],
-    "moduleResolution": "bundler"
+    "moduleResolution": "bundler",
+    "paths": {
+      "@monorepo-template/ui/src/components": ["./src/components"],
+      "@monorepo-template/ui/src/lib/utils": ["./src/lib/utils.ts"],
+      "@monorepo-template/ui/src/lib": ["./src/lib"],
+      "@monorepo-template/ui/src/components/*": ["./src/components/*"]
+    }
   },
   "include": ["src"]
 }
