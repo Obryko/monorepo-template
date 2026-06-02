@@ -13,7 +13,7 @@ describe('App e2e', () => {
     }).compile()
 
     app = moduleFixture.createNestApplication<NestFastifyApplication>(new FastifyAdapter())
-    app.setGlobalPrefix('api', { exclude: ['metrics'] })
+    app.setGlobalPrefix('api', { exclude: ['metrics', 'health'] })
     await app.init()
     await app.getHttpAdapter().getInstance().ready()
   })
@@ -45,5 +45,13 @@ describe('App e2e', () => {
     expect(response.status).toBe(200)
     expect(response.headers['content-type']).toContain('text/plain')
     expect(response.text).toContain('nodejs_version_info')
+  })
+
+  it('GET /health returns 200 with status ok', async () => {
+    const response = await request(app.getHttpServer()).get('/health')
+    expect(response.status).toBe(200)
+    expect(response.body.status).toBe('ok')
+    expect(response.body.info.memory_heap.status).toBe('up')
+    expect(response.body.info.memory_rss.status).toBe('up')
   })
 })
