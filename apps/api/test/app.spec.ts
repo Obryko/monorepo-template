@@ -1,9 +1,11 @@
 import { FastifyAdapter, type NestFastifyApplication } from '@nestjs/platform-fastify'
 import { Test, type TestingModule } from '@nestjs/testing'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
+import { Logger } from '@nestjs/common'
 import request from 'supertest'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { AppModule } from '../src/app.module'
+import { AllExceptionsFilter } from '../src/filters/all-exceptions.filter'
 
 describe('App e2e', () => {
   let app: NestFastifyApplication
@@ -15,6 +17,7 @@ describe('App e2e', () => {
 
     app = moduleFixture.createNestApplication<NestFastifyApplication>(new FastifyAdapter())
     app.setGlobalPrefix('api', { exclude: ['metrics', 'health', 'api-docs'] })
+    app.useGlobalFilters(new AllExceptionsFilter(new Logger()))
 
     const config = new DocumentBuilder().setTitle('API').setVersion('1.0').build()
     const document = SwaggerModule.createDocument(app, config)
