@@ -10,5 +10,7 @@ export default defineConfig({
   dts: { sourcemap: true },
   sourcemap: true,
   clean: true,
-  external: ['@nestjs/common', '@nestjs/core', 'nestjs-pino', 'pino-http'],
+  deps: {
+    neverBundle: ['@nestjs/common', '@nestjs/core', 'nestjs-pino', 'pino-http'],
+  },
 })
