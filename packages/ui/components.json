@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "css": "../../apps/web/src/styles.css",
+    "baseColor": "neutral",
+    "cssVariables": true
+  },
+  "aliases": {
+    "components": "@monorepo-template/ui/src/components",
+    "utils": "@monorepo-template/ui/src/lib/utils",
+    "ui": "@monorepo-template/ui/src/components",
+    "lib": "@monorepo-template/ui/src/lib"
+  }
+}
