@@ -1,3 +1,4 @@
+import http from 'node:http'
 import {
   type ArgumentsHost,
   Catch,
@@ -19,12 +20,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
     const statusCode =
       exception instanceof HttpException ? exception.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR
 
-    const error =
-      statusCode === HttpStatus.INTERNAL_SERVER_ERROR
-        ? 'Internal Server Error'
-        : exception instanceof HttpException
-          ? exception.message
-          : 'Internal Server Error'
+    const error = http.STATUS_CODES[statusCode] ?? 'Internal Server Error'
 
     const message =
       statusCode === HttpStatus.INTERNAL_SERVER_ERROR
