@@ -13,9 +13,7 @@ describe('App e2e', () => {
     }).compile()
 
     app = moduleFixture.createNestApplication<NestFastifyApplication>(new FastifyAdapter())
-
-    app.setGlobalPrefix('api')
-
+    app.setGlobalPrefix('api', { exclude: ['metrics'] })
     await app.init()
     await app.getHttpAdapter().getInstance().ready()
   })
@@ -24,10 +22,28 @@ describe('App e2e', () => {
     await app.close()
   })
 
-  it('GET /api', async () => {
+  it('GET /api returns 200', async () => {
     const response = await request(app.getHttpServer()).get('/api')
-
     expect(response.status).toBe(200)
     expect(response.text).toBe('Hello World!')
+  })
+
+  it('GET /api sets x-request-id response header', async () => {
+    const response = await request(app.getHttpServer()).get('/api')
+    expect(response.headers['x-request-id']).toBeDefined()
+    expect(response.headers['x-request-id']).toMatch(/^00-[0-9a-f]{32}-[0-9a-f]{16}-01$/)
+  })
+
+  it('GET /api forwards provided x-request-id', async () => {
+    const id = '00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01'
+    const response = await request(app.getHttpServer()).get('/api').set('x-request-id', id)
+    expect(response.headers['x-request-id']).toBe(id)
+  })
+
+  it('GET /metrics returns Prometheus metrics', async () => {
+    const response = await request(app.getHttpServer()).get('/metrics')
+    expect(response.status).toBe(200)
+    expect(response.headers['content-type']).toContain('text/plain')
+    expect(response.text).toContain('nodejs_version_info')
   })
 })
