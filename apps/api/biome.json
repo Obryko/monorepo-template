@@ -1,0 +1,16 @@
+{
+  "root": false,
+  "extends": "//",
+  "javascript": {
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    }
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        "useImportType": "off"
+      }
+    }
+  }
+}
