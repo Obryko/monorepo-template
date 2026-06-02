@@ -1,12 +1,12 @@
 import { Controller, Get, Inject } from '@nestjs/common'
-import { HealthCheck, type HealthCheckService, type MemoryHealthIndicator } from '@nestjs/terminus'
+import { HealthCheck, HealthCheckService, MemoryHealthIndicator } from '@nestjs/terminus'
 import type { HealthModuleOptions } from './health.module.ts'
 
 @Controller('health')
 export class HealthController {
   constructor(
-    private readonly health: HealthCheckService,
-    private readonly memory: MemoryHealthIndicator,
+    @Inject(HealthCheckService) private readonly health: HealthCheckService,
+    @Inject(MemoryHealthIndicator) private readonly memory: MemoryHealthIndicator,
     @Inject('HEALTH_MODULE_OPTIONS') private readonly options: HealthModuleOptions,
   ) {}
 
