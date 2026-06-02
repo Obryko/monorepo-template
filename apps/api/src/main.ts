@@ -12,7 +12,7 @@ sdk.start()
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter())
-  app.setGlobalPrefix('api', { exclude: ['metrics'] })
+  app.setGlobalPrefix('api', { exclude: ['metrics', 'health'] })
   await app.listen(env.PORT, '0.0.0.0')
 }
 
