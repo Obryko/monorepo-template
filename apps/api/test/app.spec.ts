@@ -1,5 +1,6 @@
 import { FastifyAdapter, type NestFastifyApplication } from '@nestjs/platform-fastify'
 import { Test, type TestingModule } from '@nestjs/testing'
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import request from 'supertest'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { AppModule } from '../src/app.module'
@@ -13,7 +14,12 @@ describe('App e2e', () => {
     }).compile()
 
     app = moduleFixture.createNestApplication<NestFastifyApplication>(new FastifyAdapter())
-    app.setGlobalPrefix('api', { exclude: ['metrics', 'health'] })
+    app.setGlobalPrefix('api', { exclude: ['metrics', 'health', 'api-docs'] })
+
+    const config = new DocumentBuilder().setTitle('API').setVersion('1.0').build()
+    const document = SwaggerModule.createDocument(app, config)
+    SwaggerModule.setup('api-docs', app, document)
+
     await app.init()
     await app.getHttpAdapter().getInstance().ready()
   })
@@ -53,5 +59,18 @@ describe('App e2e', () => {
     expect(response.body.status).toBe('ok')
     expect(response.body.info.memory_heap.status).toBe('up')
     expect(response.body.info.memory_rss.status).toBe('up')
+  })
+
+  it('GET /api-docs returns 200', async () => {
+    const response = await request(app.getHttpServer()).get('/api-docs')
+    expect(response.status).toBe(200)
+  })
+
+  it('rate limit: throttle headers present on API routes', async () => {
+    const response = await request(app.getHttpServer()).get('/api')
+    expect(response.status).toBe(200)
+    // ThrottlerGuard is active — these headers should be present
+    expect(response.headers['x-ratelimit-limit']).toBeDefined()
+    expect(response.headers['x-ratelimit-remaining']).toBeDefined()
   })
 })
