@@ -11,6 +11,6 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   deps: {
-    neverBundle: ['@nestjs/common', '@nestjs/core', 'nestjs-pino', 'pino-http', '@nestjs/terminus'],
+    neverBundle: ['@nestjs/common', '@nestjs/core', '@nestjs/terminus', 'nestjs-pino', 'pino-http'],
   },
 })
