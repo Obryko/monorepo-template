@@ -2,7 +2,9 @@
   "extends": "@monorepo-template/typescript-config/tsconfig.libs.json",
   "compilerOptions": {
     "experimentalDecorators": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "types": ["node"],
+    "allowImportingTsExtensions": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["dist", "node_modules"]
