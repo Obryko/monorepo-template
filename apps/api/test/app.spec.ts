@@ -3,7 +3,7 @@ import { FastifyAdapter, type NestFastifyApplication } from '@nestjs/platform-fa
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { Test, type TestingModule } from '@nestjs/testing'
 import request from 'supertest'
-import { afterAll, beforeAll, describe, expect, it } from 'vitest'
+import { afterAll, beforeAll, describe, expect, it } from '@rstest/core'
 import { AppModule } from '../src/app.module'
 import { AllExceptionsFilter } from '../src/filters/all-exceptions.filter'
 

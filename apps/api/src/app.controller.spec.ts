@@ -1,5 +1,5 @@
 import { Test, type TestingModule } from '@nestjs/testing'
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it } from '@rstest/core'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 

@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Logger } from '@nestjs/common'
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it, vi } from '@rstest/core'
 import { AllExceptionsFilter } from './all-exceptions.filter.ts'
 
 function makeContext() {

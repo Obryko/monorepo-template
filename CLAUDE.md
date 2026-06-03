@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Web**: TanStack Start (React 19, Vite 8, TailwindCSS 4)
 - **Contracts**: Zod schemas shared between API and web (built via `tsdown`)
 - **Env**: `@t3-oss/env-core` + Zod schemas, split into `index` (browser-safe) and `node` entrypoints
-- **Tooling**: pnpm workspaces, Biome (lint + format), Vitest, Playwright, Husky + lint-staged
+- **Tooling**: pnpm workspaces, Biome (lint + format), Rstest, Playwright, Husky + lint-staged
 
 ## Commands
 
@@ -83,8 +83,8 @@ Do not use `import type` for NestJS DI-injected classes — the runtime needs th
 
 ### Testing split (API)
 
-- `vitest.unit.config.ts` — unit tests (`src/**/*.spec.ts`)
-- `vitest.e2e.config.ts` — e2e tests (`test/**/*.spec.ts`), uses Supertest
+- `rstest.unit.config.ts` — unit tests (`src/**/*.spec.ts`)
+- `rstest.e2e.config.ts` — e2e tests (`test/**/*.spec.ts`), uses Supertest
 
 ### Web routing
 
