@@ -7,8 +7,31 @@ queue_rules:
       - check-success=Build
       - check-success=API E2E
       - check-success=Web E2E
-
 pull_request_rules:
+  - name: Label Mergify Stacks PRs
+    description: Pull requests that are part of a Mergify stack should be labeled as such
+    conditions:
+      - "commits[0].commit_message ~= (?m)Change-Id:"
+    actions:
+      label:
+        toggle:
+          - stack
+  - name: Make sure PR are up to date before merging
+    description: This automatically updates PRs when they are out-of-date with the
+      base branch to avoid semantic conflicts (next step is using a merge
+      queue).
+    conditions: []
+    actions:
+      update:
+  - name: Label conflicting pull requests
+    description: Add a label to a pull request with conflict to spot it easily
+    conditions:
+      - conflict
+      - -closed
+    actions:
+      label:
+        toggle:
+          - conflict
   - name: Automatic merge for Dependabot PRs
     conditions:
       - author=dependabot[bot]
@@ -21,7 +44,6 @@ pull_request_rules:
     actions:
       merge:
         method: squash
-
   - name: Add to merge queue when approved
     conditions:
       - check-success=Lint
