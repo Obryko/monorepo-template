@@ -184,3 +184,38 @@ jobs:
           path: apps/web/test-results
           if-no-files-found: ignore
           retention-days: 7
+
+  sonar:
+    name: SonarCloud
+    runs-on: ubuntu-24.04
+    needs: [test]
+    if: ${{ vars.SONAR_ENABLED == 'true' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build internal packages
+        run: pnpm build:internal
+
+      - name: Run tests with coverage
+        run: pnpm test --coverage
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

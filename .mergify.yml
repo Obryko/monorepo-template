@@ -1,0 +1,31 @@
+queue_rules:
+  - name: default
+    merge_conditions:
+      - check-success=Lint
+      - check-success=Typecheck
+      - check-success=Test
+      - check-success=Build
+
+pull_request_rules:
+  - name: Automatic merge for Dependabot PRs
+    conditions:
+      - author=dependabot[bot]
+      - check-success=Lint
+      - check-success=Typecheck
+      - check-success=Test
+      - check-success=Build
+    actions:
+      merge:
+        method: squash
+
+  - name: Add to merge queue when approved
+    conditions:
+      - check-success=Lint
+      - check-success=Typecheck
+      - check-success=Test
+      - check-success=Build
+      - "#approved-reviews-by>=1"
+      - label=ready-to-merge
+    actions:
+      queue:
+        name: default

@@ -1,0 +1,34 @@
+language: en-US
+
+reviews:
+  profile: chill
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  path_instructions:
+    - path: "apps/api/**"
+      instructions: >
+        NestJS 11 API with Fastify adapter and ESM. Verify: @Inject() decorators
+        on constructor params (verbatimModuleSyntax erases type tokens), import
+        paths end in .ts, import type used for type-only imports.
+    - path: "apps/web/**"
+      instructions: >
+        React app with TanStack Router/Query and Tailwind CSS 4. Check for
+        proper loader/action patterns and use of cn() for conditional classes.
+    - path: "packages/db/**"
+      instructions: >
+        Drizzle ORM with postgres-js driver. Schema changes must have a
+        corresponding migration in migrations/.
+    - path: "packages/ui/**"
+      instructions: >
+        shadcn/ui components. Prefer composition over modification of base
+        components. Tailwind classes via cn().
+    - path: ".github/workflows/**"
+      instructions: >
+        Pin action versions to a full SHA for security. Avoid storing secrets
+        in env vars that get printed to logs.
+
+chat:
+  auto_reply: true
