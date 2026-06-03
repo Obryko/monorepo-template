@@ -58,7 +58,7 @@ Short version — replace `@monorepo-template` with your scope in all files, the
 ```bash
 find . -not -path "*/node_modules/*" -not -path "*/.git/*" \
   \( -name "*.json" -o -name "*.ts" -o -name "*.tsx" -o -name "*.yml" -o -name "*.md" \) \
-  -exec sed -i '' 's/@monorepo-template\//\@your-scope\//g' {} +
+  -exec perl -i -pe 's{\@monorepo-template/}{\@your-scope/}g' {} +
 # Update root package.json "name" and "repository.url" manually, then:
 pnpm install
 ```

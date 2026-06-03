@@ -23,7 +23,10 @@ test-results
 
 .env
 .env.*
+**/.env
+**/.env.*
 !*.env.example
+!**/*.env.example
 
 graphify-out
 **/graphify-out

@@ -1,2 +1,1 @@
-pnpm exec lint-staged
-pnpm precommit:typecheck
+pnpm exec lint-staged && pnpm precommit:typecheck

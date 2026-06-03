@@ -112,15 +112,15 @@ When initializing a new project from this template, rename these locations:
 
 Quick rename (replace `your-scope` and `your-app-name`):
 ```bash
-# Rename package scope
+# Rename package scope (perl -i works identically on macOS and Linux)
 find . -not -path "*/node_modules/*" -not -path "*/.git/*" \
   \( -name "*.json" -o -name "*.ts" -o -name "*.tsx" -o -name "*.yml" -o -name "*.md" \) \
-  -exec sed -i '' 's/@monorepo-template\//\@your-scope\//g' {} +
+  -exec perl -i -pe 's{\@monorepo-template/}{\@your-scope/}g' {} +
 
 # Rename app display name
 find . -not -path "*/node_modules/*" -not -path "*/.git/*" \
   \( -name "*.json" -o -name "*.ts" -o -name "*.yml" \) \
-  -exec sed -i '' 's/monorepo-template/your-app-name/g' {} +
+  -exec perl -i -pe 's{monorepo-template}{your-app-name}g' {} +
 
 pnpm install
 ```

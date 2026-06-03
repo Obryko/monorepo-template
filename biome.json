@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "root": true,
-  "extends": ["./packages/linter/biome.base.json"],
+  "extends": ["@monorepo-template/linter/biome"],
   "vcs": {
     "enabled": true,
     "clientKind": "git",

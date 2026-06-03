@@ -21,6 +21,7 @@
     "check:fix": "biome check --write .",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run --passWithNoTests",
+    "test:coverage": "vitest run --coverage --coverage.reporter=lcov --coverage.reporter=text --passWithNoTests",
     "test:watch": "vitest"
   },
   "dependencies": {
@@ -32,6 +33,7 @@
     "@monorepo-template/linter": "workspace:*",
     "@monorepo-template/typescript-config": "workspace:*",
     "@types/node": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
     "drizzle-kit": "^0.30.0",
     "tsdown": "catalog:",
     "typescript": "catalog:",
