@@ -11,7 +11,7 @@ pull_request_rules:
   - name: Label Mergify Stacks PRs
     description: Pull requests that are part of a Mergify stack should be labeled as such
     conditions:
-      - "commits[0].commit_message ~= (?m)Change-Id:"
+      - "commits[*].commit_message ~= (?m)Change-Id:"
     actions:
       label:
         toggle:
