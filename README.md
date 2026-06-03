@@ -17,7 +17,7 @@ A pnpm monorepo template with a NestJS API, TanStack Start web app, and shared p
 
 ## Structure
 
-```
+```text
 apps/
   api/        NestJS API (Fastify, ESM)
   web/        TanStack Start SPA
