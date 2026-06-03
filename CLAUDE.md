@@ -50,6 +50,7 @@ pnpm affected:test
 ## Architecture
 
 ### Internal package dependency
+
 `apps/api` and `apps/web` both depend on:
 - `@monorepo-template/contracts` — Zod schemas for shared types/validation
 - `@monorepo-template/env` — base env utilities (`createEnv`, `nodeEnvSchema`, `portSchema`, `z`)
@@ -57,6 +58,7 @@ pnpm affected:test
 **Always run `pnpm build:internal` before typecheck or tests** — the apps import compiled dist files.
 
 ### Env schema pattern
+
 App-specific env schemas live in the app, not in `packages/env`:
 - `apps/api/src/env.ts` — server env (NestJS)
 - `apps/web/src/env/client.ts` — VITE_* client vars
@@ -66,23 +68,30 @@ App-specific env schemas live in the app, not in `packages/env`:
 `packages/env` exports only reusable primitives. Never import Playwright types there.
 
 ### Biome config inheritance
+
 Root `biome.json` extends `@monorepo-template/linter/biome`. All nested configs must use `"root": false` + `"extends": "//"`.
 
 ### NestJS ESM imports
+
 The API uses ESM. Import `.ts` extensions explicitly:
+
 ```ts
 import { AppModule } from './app.module.ts'
 ```
+
 Do not use `import type` for NestJS DI-injected classes — the runtime needs the value import.
 
 ### Testing split (API)
+
 - `vitest.unit.config.ts` — unit tests (`src/**/*.spec.ts`)
 - `vitest.e2e.config.ts` — e2e tests (`test/**/*.spec.ts`), uses Supertest
 
 ### Web routing
+
 TanStack Start with file-based routing. `src/routeTree.gen.ts` is auto-generated — do not edit manually.
 
 ### pnpm catalog
+
 Shared dependency versions (biome, typescript, vitest, tsdown, zod, @types/node) are pinned in `pnpm-workspace.yaml` under `catalog:`. Reference them as `"catalog:"` in package.json.
 
 ## Git hooks
@@ -103,7 +112,8 @@ When initializing a new project from this template, rename these locations:
 8. **`pnpm-lock.yaml`**: run `pnpm install` after all renames to regenerate
 9. **`.github/copilot-instructions.md`**: update scope and project description
 10. **`.github/workflows/ci.yml`**: `--filter @monorepo-template/web` reference
-11. **App name** (find + replace your project name):
+11. **`sonar-project.properties`**: replace `YOUR_GITHUB_ORG` placeholders in `sonar.projectKey` and `sonar.organization` before enabling the `SONAR_ENABLED` repo variable
+12. **App name** (find + replace your project name):
     - `apps/web/src/env/client.ts` — `VITE_APP_NAME` default value
     - `apps/web/.env.example` — `VITE_APP_NAME` value
     - `apps/web/public/manifest.json` — `short_name` and `name` fields
