@@ -1,0 +1,52 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Europe/Warsaw
+    open-pull-requests-limit: 10
+    versioning-strategy: increase
+    groups:
+      tanstack:
+        patterns:
+          - "@tanstack/*"
+      react:
+        patterns:
+          - react
+          - react-dom
+          - "@types/react"
+          - "@types/react-dom"
+      nest:
+        patterns:
+          - "@nestjs/*"
+      testing:
+        patterns:
+          - vitest
+          - "@playwright/test"
+          - "@testing-library/*"
+          - happy-dom
+          - supertest
+          - "@types/supertest"
+      tooling:
+        patterns:
+          - typescript
+          - "@biomejs/biome"
+          - tsdown
+          - vite
+          - "@types/node"
+          - pnpm
+          - husky
+          - lint-staged
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:30"
+      timezone: Europe/Warsaw
+    open-pull-requests-limit: 5
