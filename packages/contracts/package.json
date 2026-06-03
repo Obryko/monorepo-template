@@ -30,7 +30,8 @@
     "@biomejs/biome": "catalog:",
     "@monorepo-template/linter": "workspace:*",
     "@monorepo-template/typescript-config": "workspace:*",
-    "vitest": "catalog:",
-    "tsdown": "catalog:"
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
   }
 }
