@@ -17,11 +17,13 @@ pull_request_rules:
         toggle:
           - stack
   - name: Make sure PRs are up to date before merging
-    description: This automatically updates PRs when they are out-of-date with the
-      base branch to avoid semantic conflicts (next step is using a merge
-      queue).
+    description: This automatically updates merge-ready PRs when they are
+      out-of-date with the base branch to avoid semantic conflicts (next step
+      is using a merge queue).
     conditions:
       - -closed
+      - -draft
+      - label=ready-to-merge
     actions:
       update:
   - name: Label conflicting pull requests
