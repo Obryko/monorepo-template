@@ -1,0 +1,19 @@
+{
+  "name": "@monorepo-template/typescript-config",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "tsconfig.*.json"
+  ],
+  "exports": {
+    "./tsconfig.base.json": "./tsconfig.base.json",
+    "./tsconfig.web.json": "./tsconfig.web.json",
+    "./tsconfig.node.json": "./tsconfig.node.json",
+    "./tsconfig.nest.json": "./tsconfig.nest.json",
+    "./tsconfig.libs.json": "./tsconfig.libs.json"
+  },
+  "peerDependencies": {
+    "typescript": "catalog:"
+  }
+}

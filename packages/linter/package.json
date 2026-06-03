@@ -1,0 +1,11 @@
+{
+  "name": "@monorepo-template/linter",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./biome": "./biome.base.json"
+  },
+  "peerDependencies": {
+    "@biomejs/biome": "catalog:"
+  }
+}

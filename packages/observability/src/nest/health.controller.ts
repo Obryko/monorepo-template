@@ -2,8 +2,8 @@ import { Controller, Get, Inject } from '@nestjs/common'
 import {
   HealthCheck,
   HealthCheckService,
-  MemoryHealthIndicator,
   type HealthIndicatorFunction,
+  MemoryHealthIndicator,
 } from '@nestjs/terminus'
 import type { HealthModuleOptions } from './health.module.ts'
 

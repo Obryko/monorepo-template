@@ -1,24 +1,19 @@
 {
-  "name": "@monorepo-template/env",
+  "name": "@monorepo-template/contracts",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
-  "files": [
-    "dist"
-  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs"
-    },
-    "./node": {
-      "types": "./dist/node.d.mts",
-      "import": "./dist/node.mjs"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",
@@ -30,14 +25,12 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@t3-oss/env-core": "^0.13.11",
     "zod": "catalog:"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
     "@monorepo-template/linter": "workspace:*",
     "@monorepo-template/typescript-config": "workspace:*",
-    "@types/node": "catalog:",
     "@vitest/coverage-v8": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:",
