@@ -11,10 +11,7 @@ export default defineConfig({
         './src/lib/utils.ts',
       ),
       '@monorepo-template/ui/src/lib': path.resolve(import.meta.dirname, './src/lib'),
-      '@monorepo-template/ui/src/components': path.resolve(
-        import.meta.dirname,
-        './src/components',
-      ),
+      '@monorepo-template/ui/src/components': path.resolve(import.meta.dirname, './src/components'),
     },
   },
   test: {
