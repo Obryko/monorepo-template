@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from '@rstest/core'
 import { createTracedFetch } from '../fetch.ts'
 
 describe('createTracedFetch', () => {
