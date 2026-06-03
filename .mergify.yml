@@ -5,6 +5,8 @@ queue_rules:
       - check-success=Typecheck
       - check-success=Test
       - check-success=Build
+      - check-success=API E2E
+      - check-success=Web E2E
 
 pull_request_rules:
   - name: Automatic merge for Dependabot PRs
@@ -14,6 +16,8 @@ pull_request_rules:
       - check-success=Typecheck
       - check-success=Test
       - check-success=Build
+      - check-success=API E2E
+      - check-success=Web E2E
     actions:
       merge:
         method: squash
@@ -24,6 +28,8 @@ pull_request_rules:
       - check-success=Typecheck
       - check-success=Test
       - check-success=Build
+      - check-success=API E2E
+      - check-success=Web E2E
       - "#approved-reviews-by>=1"
       - label=ready-to-merge
     actions:
