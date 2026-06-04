@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "rsbuild dev --port 3001",
     "build": "rsbuild build",
-    "preview": "rsbuild preview"
+    "preview": "rsbuild preview",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "react": "^19.2.7",
