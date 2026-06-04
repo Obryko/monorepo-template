@@ -263,6 +263,9 @@ importers:
       '@rsbuild/plugin-react':
         specifier: ^2.0.1
         version: 2.0.1(@rsbuild/core@2.0.11(@module-federation/runtime-tools@2.5.0(node-fetch@2.7.0(encoding@0.1.13))))(@rspack/core@2.0.6(@module-federation/runtime-tools@2.5.0(node-fetch@2.7.0(encoding@0.1.13)))(@swc/helpers@0.5.23))
+      '@rstest/core':
+        specifier: ^0.10.3
+        version: 0.10.3(@module-federation/runtime-tools@2.5.0(node-fetch@2.7.0(encoding@0.1.13)))(happy-dom@20.9.0)
       '@tailwindcss/postcss':
         specifier: ^4.3.0
         version: 4.3.0
@@ -296,9 +299,6 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 6.0.3
-      vitest:
-        specifier: 'catalog:'
-        version: 4.1.8(@opentelemetry/api@1.9.1)(@types/node@25.9.1)(@vitest/coverage-v8@4.1.8)(happy-dom@20.9.0)(vite@8.0.16(@types/node@25.9.1)(jiti@2.7.0)(terser@5.48.0)(yaml@2.9.0))
 
   packages/contracts:
     dependencies:
@@ -417,8 +417,8 @@ importers:
         specifier: ^0.57.0
         version: 0.57.2(@opentelemetry/api@1.9.1)
       '@opentelemetry/resources':
-        specifier: ^1.30.0
-        version: 1.30.1(@opentelemetry/api@1.9.1)
+        specifier: ^2.7.1
+        version: 2.7.1(@opentelemetry/api@1.9.1)
       '@opentelemetry/sdk-node':
         specifier: ^0.57.0
         version: 0.57.2(@opentelemetry/api@1.9.1)
@@ -3301,6 +3301,19 @@ packages:
       react-refresh: '>=0.10.0 <1.0.0'
     peerDependenciesMeta:
       '@rspack/core':
+        optional: true
+
+  '@rstest/core@0.10.3':
+    resolution: {integrity: sha512-UiJ1td7KszgAfPVroNKnQQ60S0EeyHdPZArng08ffMMCmwo/6aeLmjk4s+W/ojR5iredelM9Z0Yc01vN3kSaeA==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    hasBin: true
+    peerDependencies:
+      happy-dom: ^20.8.3
+      jsdom: '*'
+    peerDependenciesMeta:
+      happy-dom:
+        optional: true
+      jsdom:
         optional: true
 
   '@scarf/scarf@1.4.0':
@@ -9395,6 +9408,16 @@ snapshots:
       react-refresh: 0.18.0
     optionalDependencies:
       '@rspack/core': 2.0.6(@module-federation/runtime-tools@2.5.0(node-fetch@2.7.0(encoding@0.1.13)))(@swc/helpers@0.5.23)
+
+  '@rstest/core@0.10.3(@module-federation/runtime-tools@2.5.0(node-fetch@2.7.0(encoding@0.1.13)))(happy-dom@20.9.0)':
+    dependencies:
+      '@rsbuild/core': 2.0.11(@module-federation/runtime-tools@2.5.0(node-fetch@2.7.0(encoding@0.1.13)))
+      '@types/chai': 5.2.3
+    optionalDependencies:
+      happy-dom: 20.9.0
+    transitivePeerDependencies:
+      - '@module-federation/runtime-tools'
+      - core-js
 
   '@scarf/scarf@1.4.0': {}
 

@@ -12,7 +12,8 @@ export default defineConfig({
     pluginBabel({
       include: /\.(?:tsx|ts|jsx|js)$/,
       babelLoaderOptions(opts) {
-        opts.plugins?.unshift('babel-plugin-react-compiler')
+        opts.plugins ??= []
+        opts.plugins.unshift('babel-plugin-react-compiler')
       },
     }),
     // TanStack Start uses 'client' + 'ssr' environment names (not Rsbuild's default 'web').

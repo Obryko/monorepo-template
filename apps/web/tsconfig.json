@@ -12,7 +12,7 @@
     "src/**/*.tsx",
     "server/**/*.ts",
     "rsbuild.config.ts",
-    "vitest.config.ts",
+    "rstest.config.ts",
     "playwright.config.ts",
     "playwright.env.ts"
   ],
