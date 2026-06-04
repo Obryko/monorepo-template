@@ -45,7 +45,11 @@ describe('UI components smoke tests', () => {
   })
 
   it('Card renders', () => {
-    const { container } = render(<Card><CardContent>Content</CardContent></Card>)
+    const { container } = render(
+      <Card>
+        <CardContent>Content</CardContent>
+      </Card>,
+    )
     expect(container.firstChild).toBeTruthy()
   })
 
@@ -76,7 +80,7 @@ describe('UI components smoke tests', () => {
           <TabsTrigger value="a">A</TabsTrigger>
         </TabsList>
         <TabsContent value="a">Content A</TabsContent>
-      </Tabs>
+      </Tabs>,
     )
     expect(container.firstChild).toBeTruthy()
   })

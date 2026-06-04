@@ -25,6 +25,8 @@
     "typecheck": "pnpm build:internal && pnpm typecheck:workspaces",
     "test:workspaces": "pnpm --filter '@monorepo-template/*' --if-present test",
     "test": "pnpm build:internal && pnpm test:workspaces",
+    "test:coverage:workspaces": "pnpm --filter '@monorepo-template/*' --if-present test:coverage",
+    "test:coverage": "pnpm build:internal && pnpm test:coverage:workspaces",
     "test:e2e:workspaces": "pnpm --filter '@monorepo-template/*' --if-present test:e2e",
     "test:e2e": "pnpm build:internal && pnpm test:e2e:workspaces",
     "test:e2e:web": "pnpm build:internal && pnpm --filter @monorepo-template/web test:e2e",

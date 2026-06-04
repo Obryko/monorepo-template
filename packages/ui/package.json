@@ -21,6 +21,7 @@
     "check:fix": "biome check --write .",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run --passWithNoTests",
+    "test:coverage": "vitest run --coverage --coverage.reporter=lcov --coverage.reporter=text --passWithNoTests",
     "test:watch": "vitest"
   },
   "dependencies": {
@@ -54,7 +55,8 @@
     "@types/node": "catalog:",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
-    "@vitejs/plugin-react": "^4.0.0",
+    "@vitejs/plugin-react": "^6.0.2",
+    "@vitest/coverage-v8": "catalog:",
     "happy-dom": "^17.5.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

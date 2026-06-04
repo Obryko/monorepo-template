@@ -1,0 +1,24 @@
+node_modules
+dist
+build
+coverage
+*.log
+.idea
+.vscode
+.env
+.env.*
+!*.env.example
+
+apps/*/.env
+apps/*/.env.*
+!apps/*/.env.example
+
+playwright-report/
+test-results/
+graphify-out/
+
+# Claude Code session metadata and worktrees
+.claude/
+
+# CTA scaffolding metadata (safe to delete in new projects)
+.cta.json
