@@ -5,7 +5,4 @@ dist
 .env
 .nitro
 .rsbuild
-.wrangler
 .output
-__unconfig*
-todos.json

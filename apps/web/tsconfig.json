@@ -1,6 +1,7 @@
 {
   "extends": "@monorepo-template/typescript-config/tsconfig.web.json",
   "compilerOptions": {
+    "types": ["@rsbuild/core/types"],
     "paths": {
       "#/*": ["./src/*"],
       "@/*": ["./src/*"]
@@ -10,7 +11,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "server/**/*.ts",
-    "vite.config.ts",
+    "rsbuild.config.ts",
     "vitest.config.ts",
     "playwright.config.ts",
     "playwright.env.ts"
@@ -19,9 +20,8 @@
     "node_modules",
     "dist",
     ".output",
-    ".vinxi",
+    ".rsbuild",
     ".nitro",
-    ".tanstack",
     "src/routeTree.gen.ts",
     "**/*.test.ts",
     "**/*.test.tsx",
