@@ -10,15 +10,15 @@
   "files": {
     "includes": [
       "**",
-      "!!**/playwright-report",
-      "!!**/test-results",
-      "!!**/node_modules",
-      "!!**/dist",
-      "!!**/build",
-      "!!**/.output",
-      "!!**/.vinxi",
-      "!!**/.tanstack",
-      "!!**/coverage"
+      "!**/playwright-report",
+      "!**/test-results",
+      "!**/node_modules",
+      "!**/dist",
+      "!**/build",
+      "!**/.output",
+      "!**/.vinxi",
+      "!**/.tanstack",
+      "!**/coverage"
     ]
   }
 }
