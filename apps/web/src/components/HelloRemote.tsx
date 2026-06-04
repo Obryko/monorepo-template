@@ -1,9 +1,12 @@
 import { lazy } from 'react'
 
-const HelloRemote = lazy(() =>
-  import('remote/HelloRemote').catch(() => ({
-    default: () => <div>Remote unavailable</div>,
-  })),
+const HelloRemote = Object.assign(
+  lazy(() =>
+    import('remote/HelloRemote').catch(() => ({
+      default: () => <div>Remote unavailable</div>,
+    })),
+  ),
+  { displayName: 'HelloRemote' },
 )
 
 export default HelloRemote
