@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it } from '@rstest/core'
 import { cn } from '../lib/utils.ts'
 
 describe('cn', () => {
