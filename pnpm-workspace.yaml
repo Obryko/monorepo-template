@@ -14,9 +14,6 @@ catalog:
   "@biomejs/biome": ^2.4.16
   "@rstest/core": ^0.10.3
   "@types/node": ^25.9.1
-
-  "@vitest/coverage-v8": ^4.1.8
-  vitest: ^4.1.8
   tsdown: ^0.22.1
   typescript: ^6.0.3
   zod: ^4.4.3
