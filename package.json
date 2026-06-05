@@ -36,7 +36,7 @@
     "dev:web": "pnpm --filter @monorepo-template/web dev",
     "dev:api": "pnpm --filter @monorepo-template/api dev",
     "dev:remote": "pnpm --filter @monorepo-template/remote dev",
-    "build:remote": "pnpm --filter @monorepo-template/remote build",
+    "build:remote": "pnpm --filter @monorepo-template/remote... build",
     "precommit:typecheck": "pnpm build:internal && pnpm typecheck:workspaces",
     "prepush:test": "pnpm build:internal && pnpm test:workspaces",
     "affected:check": "pnpm --filter='...[HEAD]' --if-present check",

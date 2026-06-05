@@ -23,7 +23,7 @@ export default defineConfig({
         name: 'shell',
         filename: 'remoteEntry.js',
         remotes: {
-          remote: `remote@${process.env['REMOTE_URL'] ?? 'http://localhost:3001'}/remoteEntry.js`,
+          remote: `remote@${process.env['REMOTE_URL'] ?? 'http://localhost:3002'}/remoteEntry.js`,
         },
         shared: {
           react: { singleton: true, requiredVersion: '^19.0.0' },
