@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it } from '@rstest/core'
 
 describe('env throttle vars', () => {
   it('THROTTLE_TTL defaults to 60000', async () => {

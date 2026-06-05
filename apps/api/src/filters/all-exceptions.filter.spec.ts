@@ -1,12 +1,12 @@
 import { HttpException, HttpStatus, Logger } from '@nestjs/common'
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it, rs } from '@rstest/core'
 import { AllExceptionsFilter } from './all-exceptions.filter.ts'
 
 function makeContext() {
-  const send = vi.fn()
-  const status = vi.fn().mockReturnValue({ send })
-  const getResponse = vi.fn().mockReturnValue({ status })
-  const getRequest = vi.fn().mockReturnValue({ url: '/test', method: 'GET' })
+  const send = rs.fn()
+  const status = rs.fn().mockReturnValue({ send })
+  const getResponse = rs.fn().mockReturnValue({ status })
+  const getRequest = rs.fn().mockReturnValue({ url: '/test', method: 'GET' })
   return { switchToHttp: () => ({ getResponse, getRequest }) } as never
 }
 

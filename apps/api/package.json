@@ -10,12 +10,11 @@
     "check": "biome check .",
     "check:fix": "biome check --write .",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "vitest run --config vitest.unit.config.ts --passWithNoTests",
-    "test:unit": "vitest run --config vitest.unit.config.ts --passWithNoTests",
-    "test:unit:watch": "vitest --config vitest.unit.config.ts",
-    "test:coverage": "vitest run --config vitest.unit.config.ts --coverage --coverage.reporter=lcov --coverage.reporter=text --passWithNoTests",
-    "test:e2e": "vitest run --config vitest.e2e.config.ts --passWithNoTests",
-    "test:e2e:watch": "vitest --config vitest.e2e.config.ts"
+    "test": "rstest run --config rstest.unit.config.ts --passWithNoTests",
+    "test:unit": "rstest run --config rstest.unit.config.ts --passWithNoTests",
+    "test:unit:watch": "rstest watch --config rstest.unit.config.ts",
+    "test:e2e": "rstest run --config rstest.e2e.config.ts --passWithNoTests",
+    "test:e2e:watch": "rstest watch --config rstest.e2e.config.ts"
   },
   "dependencies": {
     "@fastify/swagger": "^9.0.0",
@@ -43,13 +42,10 @@
     "@nestjs/cli": "^11.0.21",
     "@nestjs/schematics": "^11.1.0",
     "@nestjs/testing": "^11.1.24",
-    "@swc/core": "^1.15.40",
+    "@rstest/core": "catalog:",
     "@types/node": "catalog:",
     "@types/supertest": "^7.2.0",
     "supertest": "^7.2.2",
-    "typescript": "catalog:",
-    "unplugin-swc": "^1.5.9",
-    "vitest": "catalog:",
-    "@vitest/coverage-v8": "catalog:"
+    "typescript": "catalog:"
   }
 }
