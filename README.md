@@ -11,7 +11,7 @@ A pnpm monorepo template with a NestJS API, TanStack Start web app, and shared p
 | Shared contracts | Zod |
 | Env validation | @t3-oss/env-core + Zod |
 | Lint/Format | Biome |
-| Tests | Vitest (unit), Playwright (web e2e), Supertest (api e2e) |
+| Tests | Rstest (all packages + apps/web + apps/api), Vitest (packages/ui), Playwright (web e2e), Supertest (api e2e) |
 | Package manager | pnpm 11 workspaces |
 | Node | 24 |
 
