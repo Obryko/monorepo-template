@@ -14,6 +14,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "rstest run --passWithNoTests",
     "test:watch": "rstest watch",
+
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed",
@@ -55,6 +56,7 @@
     "@types/node": "catalog:",
     "@types/react": "^19.2.16",
     "@types/react-dom": "^19.2.3",
+
     "babel-plugin-react-compiler": "^1.0.0",
     "happy-dom": "^20.10.1",
     "typescript": "catalog:"

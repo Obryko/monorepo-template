@@ -54,16 +54,16 @@ Do not add `any` unless there is a strong reason and the reason is documented.
 
 For tests, import test APIs explicitly — never rely on globals.
 
-The project uses two test runners depending on the workspace:
+The project uses two test runners:
 
-- `@rstest/core` — node packages (`contracts`, `db`, `env`, `observability`) and `apps/web`
-- `vitest` — `packages/ui` and `apps/api`
+- `@rstest/core` — all packages, `apps/web`, and `apps/api`
+- `vitest` — `packages/ui`
 
 ```ts
-// node packages & apps/web
+// all packages, apps/web, apps/api
 import { describe, expect, it } from '@rstest/core'
 
-// packages/ui, apps/api
+// packages/ui
 import { describe, expect, it } from 'vitest'
 ```
 
@@ -123,8 +123,8 @@ Nested Biome configs must use:
 
 Use:
 
-- Rstest (`@rstest/core`) for unit tests in node packages (`contracts`, `db`, `env`, `observability`) and `apps/web`.
-- Vitest for unit/component tests in `packages/ui` and `apps/api`.
+- Rstest (`@rstest/core`) for unit tests in all packages, `apps/web`, and `apps/api`.
+- Vitest for unit/component tests in `packages/ui`.
 - Playwright for web e2e tests.
 - Supertest + Vitest for API e2e tests.
 

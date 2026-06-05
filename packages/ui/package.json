@@ -59,6 +59,7 @@
 
     "@vitest/coverage-v8": "catalog:",
     "happy-dom": "^20.10.1",
+
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tailwindcss": "^4.1.8",
