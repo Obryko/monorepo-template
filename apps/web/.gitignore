@@ -9,3 +9,6 @@ dist
 .output
 __unconfig*
 todos.json
+
+# TanStack Start temp files
+.tanstack/
