@@ -2,6 +2,10 @@
   "name": "@monorepo-template/linter",
   "private": true,
   "type": "module",
+  "files": [
+    "biome.base.json"
+  ],
+
   "exports": {
     "./biome": "./biome.base.json"
   },

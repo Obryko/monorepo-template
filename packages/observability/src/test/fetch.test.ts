@@ -1,14 +1,16 @@
-import { afterEach, describe, expect, it, vi } from '@rstest/core'
+import { afterEach, describe, expect, it, rs } from '@rstest/core'
 import { createTracedFetch } from '../fetch.ts'
 
 describe('createTracedFetch', () => {
+  const originalFetch = globalThis.fetch
+
   afterEach(() => {
-    vi.unstubAllGlobals()
+    globalThis.fetch = originalFetch
   })
 
   it('injects traceparent and x-request-id on every request', async () => {
-    const mockFetch = vi.fn().mockResolvedValue(new Response('ok'))
-    vi.stubGlobal('fetch', mockFetch)
+    const mockFetch = rs.fn().mockResolvedValue(new Response('ok'))
+    globalThis.fetch = mockFetch as unknown as typeof fetch
 
     const tracedFetch = createTracedFetch(() => 'test-corr-id')
     await tracedFetch('https://example.com')
@@ -20,8 +22,8 @@ describe('createTracedFetch', () => {
   })
 
   it('preserves existing request headers', async () => {
-    const mockFetch = vi.fn().mockResolvedValue(new Response('ok'))
-    vi.stubGlobal('fetch', mockFetch)
+    const mockFetch = rs.fn().mockResolvedValue(new Response('ok'))
+    globalThis.fetch = mockFetch as unknown as typeof fetch
 
     const tracedFetch = createTracedFetch(() => 'corr-id')
     await tracedFetch('https://example.com', {
@@ -35,8 +37,9 @@ describe('createTracedFetch', () => {
   })
 
   it('calls getCorrelationId on each request', async () => {
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('ok')))
-    const getCorrelationId = vi.fn().mockReturnValue('dynamic-id')
+    const mockFetch = rs.fn().mockResolvedValue(new Response('ok'))
+    globalThis.fetch = mockFetch as unknown as typeof fetch
+    const getCorrelationId = rs.fn().mockReturnValue('dynamic-id')
 
     const tracedFetch = createTracedFetch(getCorrelationId)
     await tracedFetch('https://example.com')

@@ -33,6 +33,7 @@
     "@monorepo-template/typescript-config": "workspace:*",
     "@types/node": "catalog:",
     "@rstest/core": "catalog:",
+
     "drizzle-kit": "^0.30.0",
     "tsdown": "catalog:",
     "typescript": "catalog:"
