@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "rsbuild dev --port 3001",
+    "dev": "rsbuild dev",
     "build": "rsbuild build",
     "preview": "rsbuild preview",
     "check": "biome check .",
