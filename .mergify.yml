@@ -7,6 +7,7 @@ queue_rules:
       - check-success=Build
       - check-success=API E2E
       - check-success=Web E2E
+
 pull_request_rules:
   - name: Label Mergify Stacks PRs
     description: Pull requests that are part of a Mergify stack should be labeled as such

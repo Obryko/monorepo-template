@@ -20,9 +20,8 @@
     "check": "biome check .",
     "check:fix": "biome check --write .",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "vitest run --passWithNoTests",
-    "test:coverage": "vitest run --coverage --coverage.reporter=lcov --coverage.reporter=text --passWithNoTests",
-    "test:watch": "vitest"
+    "test": "rstest run --passWithNoTests",
+    "test:watch": "rstest watch"
   },
   "dependencies": {
     "zod": "catalog:"
@@ -31,9 +30,8 @@
     "@biomejs/biome": "catalog:",
     "@monorepo-template/linter": "workspace:*",
     "@monorepo-template/typescript-config": "workspace:*",
-    "@vitest/coverage-v8": "catalog:",
+    "@rstest/core": "catalog:",
     "tsdown": "catalog:",
-    "typescript": "catalog:",
-    "vitest": "catalog:"
+    "typescript": "catalog:"
   }
 }

@@ -31,9 +31,8 @@
     "check": "biome check .",
     "check:fix": "biome check --write .",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "vitest run --passWithNoTests",
-    "test:coverage": "vitest run --coverage --coverage.reporter=lcov --coverage.reporter=text --passWithNoTests",
-    "test:watch": "vitest"
+    "test": "rstest run --passWithNoTests",
+    "test:watch": "rstest watch"
   },
   "dependencies": {
     "@monorepo-template/env": "workspace:*",
@@ -79,13 +78,13 @@
     "@nestjs/core": "^11.0.0",
     "@nestjs/terminus": "^11.0.0",
     "@types/node": "catalog:",
-    "@vitest/coverage-v8": "catalog:",
+    "@rstest/core": "catalog:",
+
     "fastify": "^5.0.0",
     "nestjs-pino": "^4.2.0",
     "pino-http": "^11.0.0",
     "reflect-metadata": "^0.2.2",
     "tsdown": "catalog:",
-    "typescript": "catalog:",
-    "vitest": "catalog:"
+    "typescript": "catalog:"
   }
 }
