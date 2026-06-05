@@ -31,6 +31,7 @@ export default defineConfig({
     : {
         webServer: {
           command: `pnpm exec rsbuild dev --host 127.0.0.1 --port ${port}`,
+
           url: baseURL,
           reuseExistingServer: !isCI,
           timeout: 120_000,
