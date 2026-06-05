@@ -7,7 +7,12 @@ import { tanstackStart } from '@tanstack/react-start/plugin/rsbuild'
 
 export default defineConfig({
   plugins: [
-    tanstackStart(),
+    tanstackStart({
+      // Repo uses Biome, not ESLint; drop the default eslint-disable header.
+      router: {
+        routeTreeFileHeader: ['// @ts-nocheck', '// noinspection JSUnusedGlobalSymbols'],
+      },
+    }),
     pluginReact(),
     pluginBabel({
       include: /\.(?:tsx|ts|jsx|js)$/,
