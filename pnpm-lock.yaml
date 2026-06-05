@@ -213,7 +213,7 @@ importers:
         version: 1.17.0(react@19.2.7)
       nitro:
         specifier: npm:nitro-nightly@latest
-        version: nitro-nightly@4.0.0-20251010-091516-7cafddba(chokidar@4.0.3)(drizzle-orm@0.44.7(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9))(lru-cache@11.5.1)(rolldown@1.1.0)
+        version: nitro-nightly@4.0.0-20251010-091516-7cafddba(chokidar@4.0.3)(drizzle-orm@0.45.2(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9))(lru-cache@11.5.1)(rolldown@1.1.0)
       react:
         specifier: ^19.2.7
         version: 19.2.7
@@ -313,8 +313,8 @@ importers:
   packages/db:
     dependencies:
       drizzle-orm:
-        specifier: ^0.44.0
-        version: 0.44.7(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9)
+        specifier: ^0.45.2
+        version: 0.45.2(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9)
       postgres:
         specifier: ^3.4.5
         version: 3.4.9
@@ -4232,8 +4232,8 @@ packages:
     resolution: {integrity: sha512-U4wWit0fyZuGuP7iNmRleQyK2V8wCuv57vf5l3MnG4z4fzNTjY/U13M8owyQ5RavqvqxBifWORaR3wIUzlN64g==}
     hasBin: true
 
-  drizzle-orm@0.44.7:
-    resolution: {integrity: sha512-quIpnYznjU9lHshEOAYLoZ9s3jweleHlZIAWR/jX9gAWNg/JhQ1wj0KGRf7/Zm+obRrYd9GjPVJg790QY9N5AQ==}
+  drizzle-orm@0.45.2:
+    resolution: {integrity: sha512-kY0BSaTNYWnoDMVoyY8uxmyHjpJW1geOmBMdSSicKo9CIIWkSxMIj2rkeSR51b8KAPB7m+qysjuHme5nKP+E5Q==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=4'
@@ -5942,10 +5942,6 @@ packages:
 
   undici@7.24.7:
     resolution: {integrity: sha512-H/nlJ/h0ggGC+uRL3ovD+G0i4bqhvsDOpbDv7At5eFLlj2b41L8QliGbnl2H7SnDiYhENphh1tQFJZf+MyfLsQ==}
-    engines: {node: '>=20.18.1'}
-
-  undici@7.27.1:
-    resolution: {integrity: sha512-UDdpiex+mzigiyrXrGbiUaF4HzTNhKbh2vRNFaTMzcqmLIPrZxaCtwo/1TMSuWoM1Xz3WiTo9KdgI3kRqYzJGg==}
     engines: {node: '>=20.18.1'}
 
   unenv@2.0.0-rc.21:
@@ -10237,9 +10233,9 @@ snapshots:
 
   dayjs@1.11.21: {}
 
-  db0@0.3.4(drizzle-orm@0.44.7(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9)):
+  db0@0.3.4(drizzle-orm@0.45.2(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9)):
     optionalDependencies:
-      drizzle-orm: 0.44.7(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9)
+      drizzle-orm: 0.45.2(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9)
 
   debug@4.4.3:
     dependencies:
@@ -10286,7 +10282,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.44.7(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9):
+  drizzle-orm@0.45.2(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9):
     optionalDependencies:
       '@opentelemetry/api': 1.9.1
       '@types/pg': 8.15.6
@@ -11119,12 +11115,12 @@ snapshots:
 
   nf3@0.1.12: {}
 
-  nitro-nightly@4.0.0-20251010-091516-7cafddba(chokidar@4.0.3)(drizzle-orm@0.44.7(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9))(lru-cache@11.5.1)(rolldown@1.1.0):
+  nitro-nightly@4.0.0-20251010-091516-7cafddba(chokidar@4.0.3)(drizzle-orm@0.45.2(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9))(lru-cache@11.5.1)(rolldown@1.1.0):
     dependencies:
       consola: 3.4.2
       cookie-es: 2.0.1
       crossws: 0.4.5(srvx@0.8.16)
-      db0: 0.3.4(drizzle-orm@0.44.7(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9))
+      db0: 0.3.4(drizzle-orm@0.45.2(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9))
       esbuild: 0.25.12
       fetchdts: 0.1.7
       h3: 2.0.1-rc.2(crossws@0.4.5(srvx@0.8.16))
@@ -11135,9 +11131,9 @@ snapshots:
       rendu: 0.0.6
       rollup: 4.61.1
       srvx: 0.8.16
-      undici: 7.27.1
+      undici: 7.24.7
       unenv: 2.0.0-rc.21
-      unstorage: 2.0.0-alpha.3(chokidar@4.0.3)(db0@0.3.4(drizzle-orm@0.44.7(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9)))(lru-cache@11.5.1)(ofetch@1.5.1)
+      unstorage: 2.0.0-alpha.3(chokidar@4.0.3)(db0@0.3.4(drizzle-orm@0.45.2(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9)))(lru-cache@11.5.1)(ofetch@1.5.1)
     optionalDependencies:
       rolldown: 1.1.0
     transitivePeerDependencies:
@@ -11965,8 +11961,6 @@ snapshots:
 
   undici@7.24.7: {}
 
-  undici@7.27.1: {}
-
   unenv@2.0.0-rc.21:
     dependencies:
       defu: 6.1.7
@@ -11983,10 +11977,10 @@ snapshots:
       picomatch: 4.0.4
       webpack-virtual-modules: 0.6.2
 
-  unstorage@2.0.0-alpha.3(chokidar@4.0.3)(db0@0.3.4(drizzle-orm@0.44.7(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9)))(lru-cache@11.5.1)(ofetch@1.5.1):
+  unstorage@2.0.0-alpha.3(chokidar@4.0.3)(db0@0.3.4(drizzle-orm@0.45.2(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9)))(lru-cache@11.5.1)(ofetch@1.5.1):
     optionalDependencies:
       chokidar: 4.0.3
-      db0: 0.3.4(drizzle-orm@0.44.7(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9))
+      db0: 0.3.4(drizzle-orm@0.45.2(@opentelemetry/api@1.9.1)(@types/pg@8.15.6)(gel@2.2.0)(postgres@3.4.9))
       lru-cache: 11.5.1
       ofetch: 1.5.1
 
