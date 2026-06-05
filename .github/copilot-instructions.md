@@ -52,13 +52,18 @@ Prefer explicit, readable types for public exports in packages.
 
 Do not add `any` unless there is a strong reason and the reason is documented.
 
-For tests, import Vitest APIs explicitly:
+For tests, import test APIs explicitly — never rely on globals.
+
+- `packages/ui` and `apps/web`: import from `@rstest/core`
+- Other packages and `apps/api`: import from `vitest`
 
 ```ts
+// packages/ui, apps/web
+import { describe, expect, it } from '@rstest/core'
+
+// other packages, apps/api
 import { describe, expect, it } from 'vitest'
 ```
-
-Do not rely on Vitest globals.
 
 ## Imports and NestJS
 
@@ -116,7 +121,8 @@ Nested Biome configs must use:
 
 Use:
 
-- Vitest for unit/component tests.
+- Rstest (`@rstest/core`) for unit/component tests in `packages/ui` and `apps/web`.
+- Vitest for unit tests in other packages and `apps/api`.
 - Playwright for web e2e tests.
 - Supertest + Vitest for API e2e tests.
 

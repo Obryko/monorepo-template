@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Web**: TanStack Start (React 19, Vite 8, TailwindCSS 4)
 - **Contracts**: Zod schemas shared between API and web (built via `tsdown`)
 - **Env**: `@t3-oss/env-core` + Zod schemas, split into `index` (browser-safe) and `node` entrypoints
-- **Tooling**: pnpm workspaces, Biome (lint + format), Vitest, Playwright, Husky + lint-staged
+- **Tooling**: pnpm workspaces, Biome (lint + format), Rstest (packages/ui + apps/web) + Vitest (other packages + apps/api), Playwright, Husky + lint-staged
 
 ## Commands
 

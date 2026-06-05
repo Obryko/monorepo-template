@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react'
 import { describe, expect, it } from '@rstest/core'
+import { render } from '@testing-library/react'
 import {
   Alert,
   Badge,
