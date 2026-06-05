@@ -2,10 +2,10 @@ import { Logger } from '@nestjs/common'
 import { FastifyAdapter, type NestFastifyApplication } from '@nestjs/platform-fastify'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { Test, type TestingModule } from '@nestjs/testing'
+import { afterAll, beforeAll, describe, expect, it } from '@rstest/core'
 import request from 'supertest'
-import { afterAll, beforeAll, describe, expect, it } from 'vitest'
-import { AppModule } from '../src/app.module'
-import { AllExceptionsFilter } from '../src/filters/all-exceptions.filter'
+import { AppModule } from '../src/app.module.ts'
+import { AllExceptionsFilter } from '../src/filters/all-exceptions.filter.ts'
 
 describe('App e2e', () => {
   let app: NestFastifyApplication
