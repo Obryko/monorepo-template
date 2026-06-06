@@ -26,7 +26,7 @@ catalogs:
       version: 4.4.3
 
 overrides:
-  protobufjs: '>=8.2.0'
+  protobufjs: '>=8.2.0 <9.0.0'
 
 importers:
 
