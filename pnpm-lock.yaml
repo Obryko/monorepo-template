@@ -26,8 +26,8 @@ catalogs:
       version: 4.4.3
 
 overrides:
-  h3: '>=2.0.1-rc.18'
-  srvx: '>=0.11.13'
+  h3: '>=2.0.1-rc.18 <3.0.0'
+  srvx: '>=0.11.13 <1.0.0'
 
 importers:
 
@@ -210,7 +210,7 @@ importers:
         specifier: ^1.168.14
         version: 1.168.14(@rsbuild/core@2.0.11(@module-federation/runtime-tools@2.5.1(node-fetch@3.3.2)))(@tanstack/react-router@1.170.11(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(webpack@5.106.0)
       h3:
-        specifier: '>=2.0.1-rc.18'
+        specifier: '>=2.0.1-rc.18 <3.0.0'
         version: 2.0.1-rc.20(crossws@0.4.5(srvx@0.11.16))
       lucide-react:
         specifier: ^1.17.0
@@ -4141,7 +4141,7 @@ packages:
   crossws@0.4.5:
     resolution: {integrity: sha512-wUR89x/Rw7/8t+vn0CmGDYM9TD6VtARGb0LD5jq2wjtMy1vCP4M+sm6N6TigWeTYvnA8MoW29NqqXD0ep0rfBA==}
     peerDependencies:
-      srvx: '>=0.11.13'
+      srvx: '>=0.11.13 <1.0.0'
     peerDependenciesMeta:
       srvx:
         optional: true
