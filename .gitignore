@@ -9,6 +9,7 @@ coverage
 .env.*
 !*.env.example
 
+docs/superpowers/
 apps/*/.env
 apps/*/.env.*
 !apps/*/.env.example
