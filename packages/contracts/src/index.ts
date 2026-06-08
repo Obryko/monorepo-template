@@ -7,7 +7,7 @@ export const GreetingSchema: z.ZodType<string> = z.string().meta({
   example: 'Hello World!',
 })
 
-export type Greeting = string
+export type Greeting = z.infer<typeof GreetingSchema>
 
 export const contractSchemas: Readonly<Record<string, z.ZodType>> = {
   Greeting: GreetingSchema,
