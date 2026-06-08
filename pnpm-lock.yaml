@@ -128,7 +128,7 @@ importers:
         version: 11.1.24(@nestjs/common@11.1.24(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.24(@nestjs/common@11.1.24(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2))
       '@rstest/core':
         specifier: 'catalog:'
-        version: 0.10.3(happy-dom@20.10.1)
+        version: 0.10.3(happy-dom@20.10.2)
       '@types/node':
         specifier: 'catalog:'
         version: 25.9.2
@@ -253,7 +253,7 @@ importers:
         version: 2.0.1(@rsbuild/core@2.0.11(@module-federation/runtime-tools@2.5.1(node-fetch@3.3.2)))(@rspack/core@2.0.6(@module-federation/runtime-tools@2.5.1(node-fetch@3.3.2))(@swc/helpers@0.5.23))
       '@rstest/core':
         specifier: ^0.10.3
-        version: 0.10.3(@module-federation/runtime-tools@2.5.1(node-fetch@3.3.2))(happy-dom@20.10.1)
+        version: 0.10.3(@module-federation/runtime-tools@2.5.1(node-fetch@3.3.2))(happy-dom@20.10.2)
       '@tailwindcss/postcss':
         specifier: ^4.3.0
         version: 4.3.0
@@ -282,8 +282,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       happy-dom:
-        specifier: ^20.10.1
-        version: 20.10.1
+        specifier: ^20.10.2
+        version: 20.10.2
       typescript:
         specifier: 'catalog:'
         version: 6.0.3
@@ -305,7 +305,7 @@ importers:
         version: link:../typescript-config
       '@rstest/core':
         specifier: 'catalog:'
-        version: 0.10.3(happy-dom@20.10.1)
+        version: 0.10.3(happy-dom@20.10.2)
       tsdown:
         specifier: 'catalog:'
         version: 0.22.2(tsx@4.22.4)(typescript@6.0.3)
@@ -333,7 +333,7 @@ importers:
         version: link:../typescript-config
       '@rstest/core':
         specifier: 'catalog:'
-        version: 0.10.3(happy-dom@20.10.1)
+        version: 0.10.3(happy-dom@20.10.2)
       '@types/node':
         specifier: 'catalog:'
         version: 25.9.2
@@ -367,7 +367,7 @@ importers:
         version: link:../typescript-config
       '@rstest/core':
         specifier: 'catalog:'
-        version: 0.10.3(happy-dom@20.10.1)
+        version: 0.10.3(happy-dom@20.10.2)
       '@types/node':
         specifier: 'catalog:'
         version: 25.9.2
@@ -434,7 +434,7 @@ importers:
         version: 11.1.1(@grpc/grpc-js@1.14.4)(@grpc/proto-loader@0.8.1)(@nestjs/common@11.1.24(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.24(@nestjs/common@11.1.24(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@rstest/core':
         specifier: 'catalog:'
-        version: 0.10.3(happy-dom@20.10.1)
+        version: 0.10.3(happy-dom@20.10.2)
       '@types/node':
         specifier: 'catalog:'
         version: 25.9.2
@@ -528,10 +528,10 @@ importers:
         version: link:../typescript-config
       '@rstest/core':
         specifier: 'catalog:'
-        version: 0.10.3(happy-dom@20.10.1)
+        version: 0.10.3(happy-dom@20.10.2)
       '@rstest/coverage-istanbul':
         specifier: ^0.10.3
-        version: 0.10.3(@rstest/core@0.10.3(happy-dom@20.10.1))
+        version: 0.10.3(@rstest/core@0.10.3(happy-dom@20.10.2))
       '@testing-library/react':
         specifier: ^16.3.0
         version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.16))(@types/react@19.2.16)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -545,8 +545,8 @@ importers:
         specifier: ^19.1.5
         version: 19.2.3(@types/react@19.2.16)
       happy-dom:
-        specifier: ^20.10.1
-        version: 20.10.1
+        specifier: ^20.10.2
+        version: 20.10.2
       react:
         specifier: ^19.1.0
         version: 19.2.7
@@ -4562,8 +4562,8 @@ packages:
       crossws:
         optional: true
 
-  happy-dom@20.10.1:
-    resolution: {integrity: sha512-awPoqPjx8CgjapJllyDlgzgVHjBExcitKK5ZJkxwhQJyQpHFkyS2bEcqCm7IeW20cQvuCI0cz2Ifq79CJKqtiw==}
+  happy-dom@20.10.2:
+    resolution: {integrity: sha512-5p9Sxis3eowDJKqx90QCsgbNA02XXqJ59NOHvD4V6cxp+rP4d/xOyVx7uY3hS8hiUbY1VeiFH8lbJ81AyuDVLQ==}
     engines: {node: '>=20.0.0'}
 
   has-flag@4.0.0:
@@ -8909,29 +8909,29 @@ snapshots:
     optionalDependencies:
       '@rspack/core': 2.0.6(@module-federation/runtime-tools@2.5.1(node-fetch@3.3.2))(@swc/helpers@0.5.23)
 
-  '@rstest/core@0.10.3(@module-federation/runtime-tools@2.5.1(node-fetch@3.3.2))(happy-dom@20.10.1)':
+  '@rstest/core@0.10.3(@module-federation/runtime-tools@2.5.1(node-fetch@3.3.2))(happy-dom@20.10.2)':
     dependencies:
       '@rsbuild/core': 2.0.11(@module-federation/runtime-tools@2.5.1(node-fetch@3.3.2))
       '@types/chai': 5.2.3
     optionalDependencies:
-      happy-dom: 20.10.1
+      happy-dom: 20.10.2
     transitivePeerDependencies:
       - '@module-federation/runtime-tools'
       - core-js
 
-  '@rstest/core@0.10.3(happy-dom@20.10.1)':
+  '@rstest/core@0.10.3(happy-dom@20.10.2)':
     dependencies:
       '@rsbuild/core': 2.0.11
       '@types/chai': 5.2.3
     optionalDependencies:
-      happy-dom: 20.10.1
+      happy-dom: 20.10.2
     transitivePeerDependencies:
       - '@module-federation/runtime-tools'
       - core-js
 
-  '@rstest/coverage-istanbul@0.10.3(@rstest/core@0.10.3(happy-dom@20.10.1))':
+  '@rstest/coverage-istanbul@0.10.3(@rstest/core@0.10.3(happy-dom@20.10.2))':
     dependencies:
-      '@rstest/core': 0.10.3(happy-dom@20.10.1)
+      '@rstest/core': 0.10.3(happy-dom@20.10.2)
       istanbul-lib-coverage: 3.2.2
       istanbul-lib-report: 3.0.1
       istanbul-lib-source-maps: 5.0.6
@@ -10431,7 +10431,7 @@ snapshots:
     optionalDependencies:
       crossws: 0.4.5(srvx@0.11.16)
 
-  happy-dom@20.10.1:
+  happy-dom@20.10.2:
     dependencies:
       '@types/node': 25.9.1
       '@types/whatwg-mimetype': 3.0.2
