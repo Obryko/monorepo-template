@@ -24,7 +24,8 @@
     "test:watch": "rstest watch"
   },
   "dependencies": {
-    "zod": "catalog:"
+    "zod": "catalog:",
+    "zod-openapi": "^5.4.6"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
