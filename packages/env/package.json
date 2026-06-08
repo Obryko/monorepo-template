@@ -26,7 +26,8 @@
     "check:fix": "biome check --write .",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "rstest run --passWithNoTests",
-    "test:watch": "rstest watch"
+    "test:watch": "rstest watch",
+    "test:coverage": "rstest run --coverage --coverage.reporters=lcov --coverage.reporters=text --passWithNoTests"
   },
   "dependencies": {
     "@t3-oss/env-core": "^0.13.11",
@@ -38,6 +39,7 @@
     "@monorepo-template/typescript-config": "workspace:*",
     "@types/node": "catalog:",
     "@rstest/core": "catalog:",
+    "@rstest/coverage-istanbul": "^0.10.3",
 
     "tsdown": "catalog:",
     "typescript": "catalog:"
