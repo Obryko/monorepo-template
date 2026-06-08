@@ -20,7 +20,7 @@
     "@monorepo-template/typescript-config": "workspace:*",
     "@rsbuild/core": "^2.0.10",
     "@rsbuild/plugin-react": "^2.0.1",
-    "@types/react": "^19.2.16",
+    "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "typescript": "catalog:"
   },
