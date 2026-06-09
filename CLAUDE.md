@@ -21,6 +21,7 @@ pnpm dev            # All services: API (:3001) + remote MF (:3002) + web (:3000
 pnpm dev:api        # NestJS watch mode
 pnpm dev:web        # Rsbuild dev server on :3000
 pnpm dev:remote     # MF remote app on :3002 (required for remote component in shell)
+pnpm dev:storybook   # Storybook for packages/ui on :6006
 
 # Build
 pnpm build:internal # Build contracts + env (required before typecheck/test)
@@ -47,6 +48,11 @@ pnpm --filter @monorepo-template/web test:e2e:ui      # Playwright UI mode
 pnpm affected:check
 pnpm affected:typecheck
 pnpm affected:test
+
+# Database
+pnpm db:generate    # generate migration from schema changes (run after editing packages/db/src/schema/)
+pnpm db:migrate     # run pending migrations against DATABASE_URL
+pnpm db:studio      # open Drizzle Studio UI
 ```
 
 ## Architecture
@@ -82,6 +88,10 @@ import { AppModule } from './app.module.ts'
 ```
 
 Do not use `import type` for NestJS DI-injected classes — the runtime needs the value import.
+
+### Swagger / OpenAPI
+
+Swagger UI is served at `GET /api-docs`. Contract schemas in `packages/contracts/src/index.ts` are auto-registered — add `.meta({ id: 'SchemaName', description: '...' })` to any Zod schema and export it from `contractSchemas` to have it appear as a reusable `$ref` component.
 
 ### Testing split (API)
 

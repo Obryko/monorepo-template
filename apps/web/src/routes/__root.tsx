@@ -1,9 +1,14 @@
+import { initClientSentry } from '@monorepo-template/sentry/client'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import type React from 'react'
 import { clientEnv } from '#/env/client'
 import appCss from '../styles.css?url'
+
+if (typeof window !== 'undefined') {
+  initClientSentry({ dsn: clientEnv.PUBLIC_SENTRY_DSN ?? '' })
+}
 
 export const Route = createRootRoute({
   head: () => ({

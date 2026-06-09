@@ -16,10 +16,12 @@ apps/*/.env.*
 
 playwright-report/
 test-results/
+storybook-static
 graphify-out/
 
-# Claude Code session metadata and worktrees
+# Claude Code session metadata and worktrees (commands/ is intentionally tracked)
 .claude/
+!.claude/commands/
 
 # CTA scaffolding metadata (safe to delete in new projects)
 .cta.json

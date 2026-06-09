@@ -18,6 +18,7 @@ export const env = createEnv({
     PORT: portSchema.default(3001),
     CORS_ORIGIN: z.string().url().default('http://localhost:3000'),
     LOG_LEVEL: z.enum(['trace', 'debug', 'info', 'warn', 'error', 'fatal']).default('info'),
+    SENTRY_DSN: z.url().optional(),
     OTEL_EXPORTER_OTLP_ENDPOINT: otelEndpointSchema,
     OTEL_SERVICE_VERSION: otelServiceVersionSchema,
     THROTTLE_TTL: z.coerce.number().default(60000),
