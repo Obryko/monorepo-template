@@ -1,0 +1,12 @@
+{
+  "extends": "@monorepo-template/typescript-config/tsconfig.libs.json",
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "types": ["node"],
+    "allowImportingTsExtensions": true,
+    "rootDir": "./src",
+    "outDir": "./dist"
+  },
+  "include": ["src"]
+}
