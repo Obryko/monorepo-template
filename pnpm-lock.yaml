@@ -12,6 +12,9 @@ catalogs:
     '@rstest/core':
       specifier: ^0.10.3
       version: 0.10.3
+    '@rstest/coverage-istanbul':
+      specifier: ^0.10.3
+      version: 0.10.3
     '@types/node':
       specifier: ^25.9.2
       version: 25.9.2
@@ -129,6 +132,9 @@ importers:
       '@rstest/core':
         specifier: 'catalog:'
         version: 0.10.3(happy-dom@20.10.2)
+      '@rstest/coverage-istanbul':
+        specifier: 'catalog:'
+        version: 0.10.3(@rstest/core@0.10.3(happy-dom@20.10.2))
       '@types/node':
         specifier: 'catalog:'
         version: 25.9.2
@@ -252,8 +258,11 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1(@rsbuild/core@2.0.11(@module-federation/runtime-tools@2.5.1(node-fetch@3.3.2)))(@rspack/core@2.0.6(@module-federation/runtime-tools@2.5.1(node-fetch@3.3.2))(@swc/helpers@0.5.23))
       '@rstest/core':
-        specifier: ^0.10.3
+        specifier: 'catalog:'
         version: 0.10.3(@module-federation/runtime-tools@2.5.1(node-fetch@3.3.2))(happy-dom@20.10.2)
+      '@rstest/coverage-istanbul':
+        specifier: 'catalog:'
+        version: 0.10.3(@rstest/core@0.10.3(@module-federation/runtime-tools@2.5.1(node-fetch@3.3.2))(happy-dom@20.10.2))
       '@tailwindcss/postcss':
         specifier: ^4.3.0
         version: 4.3.0
@@ -309,6 +318,9 @@ importers:
       '@rstest/core':
         specifier: 'catalog:'
         version: 0.10.3(happy-dom@20.10.2)
+      '@rstest/coverage-istanbul':
+        specifier: 'catalog:'
+        version: 0.10.3(@rstest/core@0.10.3(happy-dom@20.10.2))
       tsdown:
         specifier: 'catalog:'
         version: 0.22.2(tsx@4.22.4)(typescript@6.0.3)
@@ -337,6 +349,9 @@ importers:
       '@rstest/core':
         specifier: 'catalog:'
         version: 0.10.3(happy-dom@20.10.2)
+      '@rstest/coverage-istanbul':
+        specifier: 'catalog:'
+        version: 0.10.3(@rstest/core@0.10.3(happy-dom@20.10.2))
       '@types/node':
         specifier: 'catalog:'
         version: 25.9.2
@@ -371,6 +386,9 @@ importers:
       '@rstest/core':
         specifier: 'catalog:'
         version: 0.10.3(happy-dom@20.10.2)
+      '@rstest/coverage-istanbul':
+        specifier: 'catalog:'
+        version: 0.10.3(@rstest/core@0.10.3(happy-dom@20.10.2))
       '@types/node':
         specifier: 'catalog:'
         version: 25.9.2
@@ -438,6 +456,9 @@ importers:
       '@rstest/core':
         specifier: 'catalog:'
         version: 0.10.3(happy-dom@20.10.2)
+      '@rstest/coverage-istanbul':
+        specifier: 'catalog:'
+        version: 0.10.3(@rstest/core@0.10.3(happy-dom@20.10.2))
       '@types/node':
         specifier: 'catalog:'
         version: 25.9.2
@@ -9356,6 +9377,17 @@ snapshots:
     transitivePeerDependencies:
       - '@module-federation/runtime-tools'
       - core-js
+
+  '@rstest/coverage-istanbul@0.10.3(@rstest/core@0.10.3(@module-federation/runtime-tools@2.5.1(node-fetch@3.3.2))(happy-dom@20.10.2))':
+    dependencies:
+      '@rstest/core': 0.10.3(@module-federation/runtime-tools@2.5.1(node-fetch@3.3.2))(happy-dom@20.10.2)
+      istanbul-lib-coverage: 3.2.2
+      istanbul-lib-report: 3.0.1
+      istanbul-lib-source-maps: 5.0.6
+      istanbul-reports: 3.2.0
+      swc-plugin-coverage-instrument: 0.0.32
+    transitivePeerDependencies:
+      - supports-color
 
   '@rstest/coverage-istanbul@0.10.3(@rstest/core@0.10.3(happy-dom@20.10.2))':
     dependencies:
