@@ -13,6 +13,7 @@ allowBuilds:
 catalog:
   "@biomejs/biome": ^2.4.16
   "@rstest/core": ^0.10.3
+  "@rstest/coverage-istanbul": ^0.10.3
   "@types/node": ^25.9.2
   tsdown: ^0.22.1
   typescript: ^6.0.3

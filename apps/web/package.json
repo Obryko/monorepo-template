@@ -14,6 +14,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "rstest run --passWithNoTests",
     "test:watch": "rstest watch",
+    "test:coverage": "rstest run --coverage --coverage.reporters=lcov --coverage.reporters=text --passWithNoTests",
 
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
@@ -47,7 +48,8 @@
     "@rsbuild/core": "^2.0.10",
     "@rsbuild/plugin-babel": "^1.2.1",
     "@rsbuild/plugin-react": "^2.0.1",
-    "@rstest/core": "^0.10.3",
+    "@rstest/core": "catalog:",
+    "@rstest/coverage-istanbul": "catalog:",
     "@tailwindcss/postcss": "^4.3.0",
     "@tailwindcss/typography": "^0.5.19",
     "@testing-library/dom": "^10.4.1",
