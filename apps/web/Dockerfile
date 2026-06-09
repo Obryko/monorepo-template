@@ -25,11 +25,11 @@ FROM deps AS builder
 
 COPY . .
 
-ARG VITE_APP_NAME=monorepo-template
-ARG VITE_API_URL=http://localhost:3001/api
+ARG PUBLIC_APP_NAME=monorepo-template
+ARG PUBLIC_API_URL=http://localhost:3001/api
 
-ENV VITE_APP_NAME=$VITE_APP_NAME
-ENV VITE_API_URL=$VITE_API_URL
+ENV PUBLIC_APP_NAME=$PUBLIC_APP_NAME
+ENV PUBLIC_API_URL=$PUBLIC_API_URL
 
 RUN pnpm --filter @monorepo-template/web... build
 RUN pnpm --filter @monorepo-template/web --prod deploy /prod/web

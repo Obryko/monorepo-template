@@ -17,8 +17,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 pnpm install
 
 # Dev
+pnpm dev            # All services: API (:3001) + remote MF (:3002) + web (:3000)
 pnpm dev:api        # NestJS watch mode
-pnpm dev:web        # Vite dev server on :3000
+pnpm dev:web        # Rsbuild dev server on :3000
+pnpm dev:remote     # MF remote app on :3002 (required for remote component in shell)
 
 # Build
 pnpm build:internal # Build contracts + env (required before typecheck/test)
@@ -61,7 +63,7 @@ pnpm affected:test
 
 App-specific env schemas live in the app, not in `packages/env`:
 - `apps/api/src/env.ts` — server env (NestJS)
-- `apps/web/src/env/client.ts` — VITE_* client vars
+- `apps/web/src/env/client.ts` — PUBLIC_* client vars (Rsbuild exposes `PUBLIC_`-prefixed vars to the browser)
 - `apps/web/src/env/server.ts` — server-side vars in SSR
 - `apps/web/playwright.env.ts` — e2e test env
 
@@ -115,11 +117,11 @@ When initializing a new project from this template, rename these locations:
 10. **`.github/workflows/ci.yml`**: `--filter @monorepo-template/web` reference
 11. **`sonar-project.properties`**: replace `YOUR_GITHUB_ORG` placeholders in `sonar.projectKey` and `sonar.organization` before enabling the `SONAR_ENABLED` repo variable
 12. **App name** (find + replace your project name):
-    - `apps/web/src/env/client.ts` — `VITE_APP_NAME` default value
-    - `apps/web/.env.example` — `VITE_APP_NAME` value
+    - `apps/web/src/env/client.ts` — `PUBLIC_APP_NAME` default value
+    - `apps/web/.env.example` — `PUBLIC_APP_NAME` value
     - `apps/web/public/manifest.json` — `short_name` and `name` fields
-    - `apps/web/Dockerfile` — `ARG VITE_APP_NAME` default
-    - `docker-compose.yml` — `VITE_APP_NAME` build arg
+    - `apps/web/Dockerfile` — `ARG PUBLIC_APP_NAME` default
+    - `docker-compose.yml` — `PUBLIC_APP_NAME` build arg
 
 Quick rename (replace `your-scope` and `your-app-name`):
 ```bash
