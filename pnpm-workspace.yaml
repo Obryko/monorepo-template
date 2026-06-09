@@ -13,12 +13,16 @@ allowBuilds:
 catalog:
   "@biomejs/biome": ^2.4.16
   "@rstest/core": ^0.10.3
-  "@types/node": ^25.9.1
+  "@rstest/coverage-istanbul": ^0.10.3
+  "@types/node": ^25.9.2
+  h3: ^2.0.1-rc.18
   tsdown: ^0.22.1
   typescript: ^6.0.3
   zod: ^4.4.3
 
 overrides:
+  h3: ">=2.0.1-rc.18 <3.0.0-0"
+  srvx: ">=0.11.13 <1.0.0-0"
   protobufjs: ">=8.2.0 <9.0.0"
 
 minimumReleaseAgeExclude:
