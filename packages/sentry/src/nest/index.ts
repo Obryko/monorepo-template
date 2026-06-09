@@ -13,6 +13,7 @@
  */
 import * as Sentry from '@sentry/nestjs'
 
+export { captureException } from '@sentry/nestjs'
 export { SentryExceptionFilter } from './sentry-exception.filter.ts'
 
 export interface SentryOptions {

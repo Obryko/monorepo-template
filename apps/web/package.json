@@ -25,6 +25,7 @@
     "@monorepo-template/contracts": "workspace:*",
     "@monorepo-template/env": "workspace:*",
     "@monorepo-template/observability": "workspace:*",
+    "@monorepo-template/sentry": "workspace:*",
     "@monorepo-template/ui": "workspace:*",
     "@tanstack/react-devtools": "^0.10.5",
     "@tanstack/react-router": "^1.170.15",
