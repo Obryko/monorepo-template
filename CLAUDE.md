@@ -21,6 +21,7 @@ pnpm dev            # All services: API (:3001) + remote MF (:3002) + web (:3000
 pnpm dev:api        # NestJS watch mode
 pnpm dev:web        # Rsbuild dev server on :3000
 pnpm dev:remote     # MF remote app on :3002 (required for remote component in shell)
+pnpm dev:storybook   # Storybook for packages/ui on :6006
 
 # Build
 pnpm build:internal # Build contracts + env (required before typecheck/test)

@@ -16,6 +16,7 @@ apps/*/.env.*
 
 playwright-report/
 test-results/
+storybook-static
 graphify-out/
 
 # Claude Code session metadata and worktrees (commands/ is intentionally tracked)
