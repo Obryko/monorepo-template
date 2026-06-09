@@ -44,7 +44,7 @@
     "@nestjs/schematics": "^11.1.0",
     "@nestjs/testing": "^11.1.24",
     "@rstest/core": "catalog:",
-    "@rstest/coverage-istanbul": "^0.10.3",
+    "@rstest/coverage-istanbul": "catalog:",
     "@types/node": "catalog:",
     "@types/supertest": "^7.2.0",
     "supertest": "^7.2.2",

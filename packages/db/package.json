@@ -34,7 +34,7 @@
     "@monorepo-template/typescript-config": "workspace:*",
     "@types/node": "catalog:",
     "@rstest/core": "catalog:",
-    "@rstest/coverage-istanbul": "^0.10.3",
+    "@rstest/coverage-istanbul": "catalog:",
 
     "drizzle-kit": "^0.31.0",
     "tsdown": "catalog:",

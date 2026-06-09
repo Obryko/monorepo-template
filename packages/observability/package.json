@@ -80,7 +80,7 @@
     "@nestjs/terminus": "^11.0.0",
     "@types/node": "catalog:",
     "@rstest/core": "catalog:",
-    "@rstest/coverage-istanbul": "^0.10.3",
+    "@rstest/coverage-istanbul": "catalog:",
 
     "fastify": "^5.0.0",
     "nestjs-pino": "^4.2.0",
