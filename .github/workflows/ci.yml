@@ -21,6 +21,11 @@ jobs:
     name: Lint
     runs-on: ubuntu-24.04
     steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          persist-credentials: false
+
       - name: Setup
         uses: ./.github/actions/setup
 
@@ -31,6 +36,11 @@ jobs:
     name: Typecheck
     runs-on: ubuntu-24.04
     steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          persist-credentials: false
+
       - name: Setup
         uses: ./.github/actions/setup
 
@@ -44,6 +54,11 @@ jobs:
     name: Test
     runs-on: ubuntu-24.04
     steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          persist-credentials: false
+
       - name: Setup
         uses: ./.github/actions/setup
 
@@ -58,6 +73,11 @@ jobs:
     runs-on: ubuntu-24.04
     needs: [lint, typecheck, test]
     steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          persist-credentials: false
+
       - name: Setup
         uses: ./.github/actions/setup
 
@@ -69,6 +89,11 @@ jobs:
     runs-on: ubuntu-24.04
     needs: [build]
     steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          persist-credentials: false
+
       - name: Setup
         uses: ./.github/actions/setup
 
@@ -83,6 +108,11 @@ jobs:
     runs-on: ubuntu-24.04
     needs: [build]
     steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          persist-credentials: false
+
       - name: Setup
         uses: ./.github/actions/setup
 
@@ -119,10 +149,14 @@ jobs:
     needs: [test]
     if: ${{ vars.SONAR_ENABLED == 'true' }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
       - name: Setup
         uses: ./.github/actions/setup
-        with:
-          fetch-depth: '0'
 
       - name: Run tests with coverage
         run: pnpm test:coverage
