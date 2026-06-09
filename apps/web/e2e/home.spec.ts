@@ -16,8 +16,10 @@ test('renders MF remote component', async ({ page }) => {
 })
 
 test('shows error boundary when remote is unavailable', async ({ page }) => {
-  // Intercept remoteEntry.js to simulate remote being down
-  await page.route('**/remoteEntry.js', (route) => route.abort())
+  // Intercept only the remote's remoteEntry.js (not the shell's) to simulate remote being down
+  await page.route(/127\.0\.0\.1:3002\/remoteEntry\.js|localhost:3002\/remoteEntry\.js/, (route) =>
+    route.abort(),
+  )
 
   await page.goto('/')
 

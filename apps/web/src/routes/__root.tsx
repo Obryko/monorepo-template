@@ -6,7 +6,9 @@ import type React from 'react'
 import { clientEnv } from '#/env/client'
 import appCss from '../styles.css?url'
 
-initClientSentry({ dsn: clientEnv.PUBLIC_SENTRY_DSN ?? '' })
+if (typeof window !== 'undefined') {
+  initClientSentry({ dsn: clientEnv.PUBLIC_SENTRY_DSN ?? '' })
+}
 
 export const Route = createRootRoute({
   head: () => ({

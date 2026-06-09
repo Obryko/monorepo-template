@@ -7,6 +7,23 @@ import {
 } from '@nestjs/common'
 import { captureException } from '@sentry/nestjs'
 
+interface ResponseLike {
+  status: (n: number) => ResponseLike
+  send?: (body: unknown) => unknown
+  json?: (body: unknown) => unknown
+}
+
+function sendResponse(res: ResponseLike, status: number, body: unknown): void {
+  const target = res.status(status)
+  if (typeof target.send === 'function') {
+    target.send(body)
+    return
+  }
+  if (typeof target.json === 'function') {
+    target.json(body)
+  }
+}
+
 @Catch()
 export class SentryExceptionFilter implements ExceptionFilter {
   private readonly logger = new Logger(SentryExceptionFilter.name)
@@ -18,19 +35,21 @@ export class SentryExceptionFilter implements ExceptionFilter {
     }
 
     captureException(exception)
-    this.logger.error(exception)
+    const msg = exception instanceof Error ? exception.message : String(exception)
+    const stack = exception instanceof Error ? exception.stack : undefined
+    this.logger.error(msg, stack)
 
-    if (host.getType() === 'http') {
-      const ctx = host.switchToHttp()
-      const res = ctx.getResponse<{ status: (n: number) => { json: (b: unknown) => void } }>()
-      res.status(500).json({ statusCode: 500, error: 'Internal Server Error' })
+    if (host.getType() !== 'http') {
+      throw exception
     }
+
+    const res = host.switchToHttp().getResponse<ResponseLike>()
+    sendResponse(res, 500, { statusCode: 500, error: 'Internal Server Error' })
   }
 
   private forwardHttpException(exception: HttpException, host: ArgumentsHost): void {
     if (host.getType() !== 'http') return
-    const ctx = host.switchToHttp()
-    const res = ctx.getResponse<{ status: (n: number) => { json: (b: unknown) => void } }>()
-    res.status(exception.getStatus()).json(exception.getResponse())
+    const res = host.switchToHttp().getResponse<ResponseLike>()
+    sendResponse(res, exception.getStatus(), exception.getResponse())
   }
 }

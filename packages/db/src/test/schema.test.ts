@@ -1,23 +1,18 @@
 import { describe, expect, it } from '@rstest/core'
+import { getTableColumns, getTableName } from 'drizzle-orm'
 import { users } from '../schema/index.ts'
 
 describe('users schema', () => {
-  it('exports users table', () => {
-    expect(users).toBeDefined()
-    const nameSym = Object.getOwnPropertySymbols(users).find(
-      (s) => s.description === 'drizzle:Name',
-    )
-    expect(users[nameSym!]).toBe('users')
+  it('exports users table named "users"', () => {
+    expect(getTableName(users)).toBe('users')
   })
 
   it('has expected columns', () => {
-    const colSym = Object.getOwnPropertySymbols(users).find(
-      (s) => s.description === 'drizzle:Columns',
-    )
-    const cols = Object.keys(users[colSym!])
-    expect(cols).toContain('id')
-    expect(cols).toContain('email')
-    expect(cols).toContain('name')
-    expect(cols).toContain('createdAt')
+    const cols = Object.keys(getTableColumns(users))
+    expect(cols).toEqual(['id', 'email', 'name', 'createdAt', 'updatedAt'])
+  })
+
+  it('email column is unique', () => {
+    expect(getTableColumns(users).email.isUnique).toBe(true)
   })
 })

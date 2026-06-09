@@ -1,7 +1,7 @@
 import { defineConfig } from '@rstest/core'
 
 export default defineConfig({
-  globals: true,
+  globals: false,
   testEnvironment: 'node',
   include: ['src/test/**/*.{test,spec}.ts'],
 })
