@@ -1,4 +1,5 @@
 import http from 'node:http'
+import { captureException } from '@monorepo-template/sentry'
 import {
   type ArgumentsHost,
   Catch,
@@ -33,6 +34,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
       const msg = exception instanceof Error ? exception.message : String(exception)
       const stack = exception instanceof Error ? exception.stack : undefined
       this.logger.error(msg, stack)
+      captureException(exception)
     }
 
     void response.status(statusCode).send({ statusCode, error, message })

@@ -1,4 +1,5 @@
 import { createOtelSdk } from '@monorepo-template/observability'
+import { initSentry } from '@monorepo-template/sentry'
 import { Logger } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { FastifyAdapter, type NestFastifyApplication } from '@nestjs/platform-fastify'
@@ -13,6 +14,7 @@ const sdk = createOtelSdk({
   ...(env.OTEL_SERVICE_VERSION ? { version: env.OTEL_SERVICE_VERSION } : {}),
 })
 sdk.start()
+initSentry({ dsn: env.SENTRY_DSN ?? '' })
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter())

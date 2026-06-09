@@ -29,13 +29,21 @@ export default defineConfig({
   ...(playwrightEnv.E2E_BASE_URL
     ? {}
     : {
-        webServer: {
-          command: `pnpm exec rsbuild dev --host 127.0.0.1 --port ${port}`,
-
-          url: baseURL,
-          reuseExistingServer: !isCI,
-          timeout: 120_000,
-        },
+        webServer: [
+          {
+            command:
+              'pnpm --filter @monorepo-template/remote exec rsbuild dev --host 127.0.0.1 --port 3002',
+            url: 'http://127.0.0.1:3002/remoteEntry.js',
+            reuseExistingServer: !isCI,
+            timeout: 120_000,
+          },
+          {
+            command: `pnpm exec rsbuild dev --host 127.0.0.1 --port ${port}`,
+            url: baseURL,
+            reuseExistingServer: !isCI,
+            timeout: 120_000,
+          },
+        ],
       }),
   projects: [
     {
