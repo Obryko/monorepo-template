@@ -33,6 +33,7 @@
     "build": "pnpm --filter '@monorepo-template/*' --if-present build",
     "build:api": "pnpm --filter @monorepo-template/api... build",
     "build:web": "pnpm --filter @monorepo-template/web... build",
+    "dev": "pnpm dev:api & pnpm dev:remote & pnpm dev:web",
     "dev:web": "pnpm --filter @monorepo-template/web dev",
     "dev:api": "pnpm --filter @monorepo-template/api dev",
     "dev:remote": "pnpm --filter @monorepo-template/remote dev",
