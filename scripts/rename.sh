@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCOPE="${1:-}"
+APP_NAME="${2:-}"
+
+if [[ -z "$SCOPE" || -z "$APP_NAME" ]]; then
+  echo "Usage: ./scripts/rename.sh <new-scope> <new-app-name>"
+  echo "Example: ./scripts/rename.sh myorg my-project"
+  echo ""
+  echo "  <new-scope>    npm scope without @, e.g. 'myorg'"
+  echo "  <new-app-name> app name used in paths and display, e.g. 'my-project'"
+  exit 1
+fi
+
+# Strip leading @ if provided
+SCOPE="${SCOPE#@}"
+
+echo "Renaming: @monorepo-template/* → @${SCOPE}/*"
+echo "Renaming: monorepo-template → ${APP_NAME}"
+echo ""
+
+find . \
+  -not -path "*/node_modules/*" \
+  -not -path "*/.git/*" \
+  -not -path "*/dist/*" \
+  -not -path "*/.pnpm-store/*" \
+  -not -path "*/.claude/*" \
+  \( -name "*.json" -o -name "*.ts" -o -name "*.tsx" -o -name "*.yml" -o -name "*.yaml" -o -name "*.md" \) \
+  -exec perl -i -pe \
+    "s{\@monorepo-template/}{\@${SCOPE}/}g; s{monorepo-template}{${APP_NAME}}g" {} +
+
+echo "Running pnpm install to regenerate lockfile..."
+pnpm install
+
+echo ""
+echo "Done! Review changes with: git diff"
+echo "Then commit: git add -A && git commit -m 'chore: rename to @${SCOPE}/${APP_NAME}'"
