@@ -22,7 +22,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "rstest run --passWithNoTests",
     "test:watch": "rstest watch",
-    "test:coverage": "rstest run --coverage --coverage.reporters=lcov --coverage.reporters=text --passWithNoTests"
+    "test:coverage": "rstest run --coverage --coverage.reporters=lcov --coverage.reporters=text --passWithNoTests",
+    "test:integration": "rstest run --config rstest.integration.config.ts --passWithNoTests"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.2",
@@ -36,6 +37,8 @@
     "@rstest/core": "catalog:",
     "@rstest/coverage-istanbul": "catalog:",
 
+    "@testcontainers/postgresql": "^10.0.0",
+    "testcontainers": "^10.0.0",
     "drizzle-kit": "^0.31.0",
     "tsdown": "catalog:",
     "typescript": "catalog:"

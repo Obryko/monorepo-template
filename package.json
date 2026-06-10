@@ -30,6 +30,7 @@
     "test:e2e:workspaces": "pnpm --filter '@monorepo-template/*' --if-present test:e2e",
     "test:e2e": "pnpm build:internal && pnpm test:e2e:workspaces",
     "test:e2e:web": "pnpm build:internal && pnpm --filter @monorepo-template/web test:e2e",
+    "test:integration": "pnpm build:internal && pnpm --filter '@monorepo-template/*' --if-present test:integration",
     "build": "pnpm --filter '@monorepo-template/*' --if-present build",
     "build:api": "pnpm --filter @monorepo-template/api... build",
     "build:web": "pnpm --filter @monorepo-template/web... build",
