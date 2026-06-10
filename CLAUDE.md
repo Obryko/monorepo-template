@@ -43,6 +43,7 @@ pnpm --filter @monorepo-template/web test:watch       # watch mode, web
 pnpm test:e2e                         # all e2e tests
 pnpm test:e2e:web                     # Playwright only
 pnpm --filter @monorepo-template/web test:e2e:ui      # Playwright UI mode
+pnpm test:integration                 # TestContainers integration tests (requires Docker)
 
 # Affected-only (compares to HEAD)
 pnpm affected:check
