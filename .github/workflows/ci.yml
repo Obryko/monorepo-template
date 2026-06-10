@@ -65,8 +65,20 @@ jobs:
       - name: Build internal packages
         run: pnpm build:internal
 
-      - name: Run unit tests
-        run: pnpm test
+      - name: Run unit tests with coverage
+        run: pnpm test:coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@18283e04de4b7cccfb12c1754e27b8e18c3eb0f4 # v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: >-
+            ./apps/api/coverage/lcov.info,
+            ./apps/web/coverage/lcov.info,
+            ./packages/contracts/coverage/lcov.info,
+            ./packages/env/coverage/lcov.info,
+            ./packages/observability/coverage/lcov.info
+          fail_ci_if_error: false
 
   integration:
     name: Integration Tests

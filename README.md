@@ -1,5 +1,7 @@
 # monorepo-template
 
+[![codecov](https://codecov.io/gh/YOUR_GITHUB_ORG/monorepo-template/graph/badge.svg)](https://codecov.io/gh/YOUR_GITHUB_ORG/monorepo-template)
+
 A pnpm monorepo template with a NestJS API, TanStack Start web app, Module Federation remote app, and shared packages.
 
 ## Stack
