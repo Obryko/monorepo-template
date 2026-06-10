@@ -1,8 +1,9 @@
 import { extractCorrelationId } from '@monorepo-template/observability'
-import { defineEventHandler, getRequestHeaders, setResponseHeader } from 'h3'
+import { defineEventHandler, setResponseHeader } from 'h3'
 
 export default defineEventHandler((event) => {
-  const correlationId = extractCorrelationId(getRequestHeaders(event))
-  event.context['correlationId'] = correlationId
+  const headers = Object.fromEntries(event.req.headers.entries())
+  const correlationId = extractCorrelationId(headers)
+  event.context.correlationId = correlationId
   setResponseHeader(event, 'x-request-id', correlationId)
 })
