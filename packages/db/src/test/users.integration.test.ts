@@ -13,8 +13,10 @@ describe('users repository (integration)', () => {
 
     db = createDb(container.getConnectionUri())
 
-    // Push schema — no migration files needed for example tests
+    // Push schema — no migration files needed for example tests.
+    // pgcrypto is required only on Postgres < 13; safe to enable always.
     const client = db.$client
+    await client`CREATE EXTENSION IF NOT EXISTS pgcrypto`
     await client`
       CREATE TABLE IF NOT EXISTS users (
         id        uuid        PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -27,6 +29,7 @@ describe('users repository (integration)', () => {
   }, 60_000)
 
   afterAll(async () => {
+    await db.$client.end({ timeout: 5 })
     await container.stop()
   })
 

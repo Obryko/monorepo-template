@@ -12,15 +12,14 @@
     "5432": { "label": "Postgres" },
     "6006": { "label": "Storybook" }
   },
-  "postCreateCommand": "corepack enable && corepack prepare pnpm@latest --activate && pnpm install && cp apps/api/.env.example apps/api/.env && cp apps/web/.env.example apps/web/.env",
+  "postCreateCommand": "corepack enable && pnpm install && cp -n apps/api/.env.example apps/api/.env && cp -n apps/web/.env.example apps/web/.env",
   "postStartCommand": "docker compose up -d postgres",
   "customizations": {
     "vscode": {
       "extensions": [
         "biomejs.biome",
         "bradlc.vscode-tailwindcss",
-        "ms-vscode.vscode-typescript-next",
-        "dbaeumer.vscode-eslint"
+        "ms-vscode.vscode-typescript-next"
       ],
       "settings": {
         "editor.defaultFormatter": "biomejs.biome",
