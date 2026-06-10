@@ -7,6 +7,9 @@ export default defineConfig({
   exclude: ['test/**/*.{test,spec}.ts'],
   clearMocks: true,
   restoreMocks: true,
+  env: {
+    DATABASE_URL: 'postgresql://postgres:postgres@localhost:5432/postgres',
+  },
   source: {
     decorators: {
       version: 'legacy',
