@@ -4,11 +4,15 @@ import { APP_GUARD } from '@nestjs/core'
 import { ThrottlerModule } from '@nestjs/throttler'
 import { AppController } from './app.controller.ts'
 import { AppService } from './app.service.ts'
+import { DatabaseModule } from './database/database.module.ts'
 import { env } from './env.ts'
 import { AppThrottlerGuard } from './guards/throttler.guard.ts'
+import { UsersModule } from './users/users.module.ts'
 
 @Module({
   imports: [
+    DatabaseModule,
+    UsersModule,
     ObservabilityModule.forRoot({
       serviceName: 'api',
       logLevel: env.LOG_LEVEL,
