@@ -4,6 +4,7 @@ queue_rules:
       - check-success=Lint
       - check-success=Typecheck
       - check-success=Test
+      - check-success=Integration Tests
       - check-success=Build
       - check-success=API E2E
       - check-success=Web E2E
@@ -42,6 +43,7 @@ pull_request_rules:
       - check-success=Lint
       - check-success=Typecheck
       - check-success=Test
+      - check-success=Integration Tests
       - check-success=Build
       - check-success=API E2E
       - check-success=Web E2E
@@ -53,6 +55,7 @@ pull_request_rules:
       - check-success=Lint
       - check-success=Typecheck
       - check-success=Test
+      - check-success=Integration Tests
       - check-success=Build
       - check-success=API E2E
       - check-success=Web E2E
