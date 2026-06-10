@@ -14,10 +14,16 @@ catalog:
   "@biomejs/biome": ^2.4.16
   "@rstest/core": ^0.10.3
   "@rstest/coverage-istanbul": ^0.10.3
+  "@storybook/addon-essentials": ^8.0.0
+  "@storybook/react": ^8.0.0
+  "@storybook/react-vite": ^8.0.0
+  "@tailwindcss/vite": ^4.0.0
   "@types/node": ^25.9.2
   h3: ^2.0.1-rc.18
+  storybook: ^8.0.0
   tsdown: ^0.22.1
   typescript: ^6.0.3
+  vite: ^6.0.0
   zod: ^4.4.3
 
 overrides:

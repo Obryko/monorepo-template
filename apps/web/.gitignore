@@ -5,6 +5,7 @@ dist
 .env
 .nitro
 .rsbuild
+@mf-types/
 .wrangler
 .output
 __unconfig*
