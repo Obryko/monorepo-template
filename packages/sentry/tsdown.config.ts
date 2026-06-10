@@ -7,7 +7,7 @@ export default defineConfig([
     format: 'esm',
     dts: true,
     sourcemap: true,
-    external: ['@nestjs/common', '@nestjs/core', 'reflect-metadata'],
+    deps: { neverBundle: ['@nestjs/common', '@nestjs/core', 'reflect-metadata'] },
   },
   {
     entry: './src/client/index.ts',
@@ -15,6 +15,6 @@ export default defineConfig([
     format: 'esm',
     dts: true,
     sourcemap: true,
-    external: ['react', 'react-dom'],
+    deps: { neverBundle: ['react', 'react-dom'] },
   },
 ])

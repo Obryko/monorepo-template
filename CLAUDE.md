@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Stack
 
 - **API**: NestJS 11 + Fastify, ESM, Node 24
-- **Web**: TanStack Start (React 19, Vite 8, TailwindCSS 4)
+- **Web**: TanStack Start (React 19, Rsbuild, TailwindCSS 4, Module Federation shell)
 - **Contracts**: Zod schemas shared between API and web (built via `tsdown`)
 - **Env**: `@t3-oss/env-core` + Zod schemas, split into `index` (browser-safe) and `node` entrypoints
 - **Tooling**: pnpm workspaces, Biome (lint + format), Rstest (all packages + apps/web + apps/api), Playwright, Husky + lint-staged
