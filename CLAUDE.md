@@ -121,8 +121,9 @@ Run the rename script:
 # Example: ./scripts/rename.sh myorg my-project
 ```
 
-The script replaces all `@monorepo-template/` references and `monorepo-template` strings across all source files, then runs `pnpm install` to regenerate the lockfile.
+The script replaces all `@monorepo-template/` references and `monorepo-template` strings in `.json`, `.ts`, `.tsx`, `.yml`, `.yaml`, `.md`, `.env.example`, and `Dockerfile` files (excluding `node_modules`, `.git`, `dist`, `.pnpm-store`, `.claude`), then runs `pnpm install` to regenerate the lockfile.
 
 After running, also update manually:
 - `sonar-project.properties` — replace `YOUR_GITHUB_ORG` placeholders
 - `apps/web/public/manifest.json` — `short_name` and `name` fields
+- `README.md` — update the Codecov badge URL with your GitHub org/repo

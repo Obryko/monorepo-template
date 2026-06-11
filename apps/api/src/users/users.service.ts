@@ -14,7 +14,7 @@ export class UsersService {
   }
 
   async findOne(id: string): Promise<User | null> {
-    const rows = await this.db.select().from(schema.users).where(eq(schema.users.id, id))
+    const rows = await this.db.select().from(schema.users).where(eq(schema.users.id, id)).limit(1)
     return rows[0] ? toUser(rows[0]) : null
   }
 }

@@ -22,11 +22,13 @@ const contractUser: User = {
 
 describe('UsersService', () => {
   let service: UsersService
+  let mockLimit: ReturnType<typeof rs.fn>
   let mockWhere: ReturnType<typeof rs.fn>
   let mockFrom: ReturnType<typeof rs.fn>
 
   beforeEach(async () => {
-    mockWhere = rs.fn()
+    mockLimit = rs.fn()
+    mockWhere = rs.fn().mockReturnValue({ limit: mockLimit })
     mockFrom = rs.fn().mockReturnValue({ where: mockWhere })
     const mockDb = { select: rs.fn().mockReturnValue({ from: mockFrom }) }
 
@@ -51,12 +53,12 @@ describe('UsersService', () => {
 
   describe('findOne', () => {
     it('returns user when found', async () => {
-      mockWhere.mockResolvedValue([dbRow])
+      mockLimit.mockResolvedValue([dbRow])
       expect(await service.findOne(dbRow.id)).toEqual(contractUser)
     })
 
     it('returns null when not found', async () => {
-      mockWhere.mockResolvedValue([])
+      mockLimit.mockResolvedValue([])
       expect(await service.findOne('nonexistent')).toBeNull()
     })
   })

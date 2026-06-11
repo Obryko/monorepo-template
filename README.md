@@ -1,6 +1,6 @@
 # monorepo-template
 
-[![codecov](https://codecov.io/gh/YOUR_GITHUB_ORG/monorepo-template/graph/badge.svg)](https://codecov.io/gh/YOUR_GITHUB_ORG/monorepo-template)
+[![codecov](https://codecov.io/gh/Obryko/monorepo-template/graph/badge.svg)](https://codecov.io/gh/Obryko/monorepo-template)
 
 A pnpm monorepo template with a NestJS API, TanStack Start web app, Module Federation remote app, and shared packages.
 
@@ -82,14 +82,11 @@ pnpm db:studio       # open Drizzle Studio
 
 ## Using as a template
 
-See [CLAUDE.md](./CLAUDE.md#using-this-as-a-template) for the full rename checklist.
-
-Short version — replace `@monorepo-template` with your scope in all files, then `pnpm install`:
+Run the rename script:
 
 ```bash
-find . -not -path "*/node_modules/*" -not -path "*/.git/*" \
-  \( -name "*.json" -o -name "*.ts" -o -name "*.tsx" -o -name "*.yml" -o -name "*.md" \) \
-  -exec perl -i -pe 's{\@monorepo-template/}{\@your-scope/}g' {} +
-# Update root package.json "name" and "repository.url" manually, then:
-pnpm install
+./scripts/rename.sh <new-scope> <new-app-name>
+# Example: ./scripts/rename.sh myorg my-project
 ```
+
+See [CLAUDE.md](./CLAUDE.md#using-this-as-a-template) for what the script does and the few manual updates still required after running it.
