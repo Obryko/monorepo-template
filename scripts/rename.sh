@@ -9,11 +9,13 @@ SCOPE="${1:-}"
 APP_NAME="${2:-}"
 
 if [[ -z "$SCOPE" || -z "$APP_NAME" ]]; then
-  echo "Usage: ./scripts/rename.sh <new-scope> <new-app-name>"
-  echo "Example: ./scripts/rename.sh myorg my-project"
-  echo ""
-  echo "  <new-scope>    npm scope without @, e.g. 'myorg'"
-  echo "  <new-app-name> app name used in paths and display, e.g. 'my-project'"
+  {
+    echo "Usage: ./scripts/rename.sh <new-scope> <new-app-name>"
+    echo "Example: ./scripts/rename.sh myorg my-project"
+    echo ""
+    echo "  <new-scope>    npm scope without @, e.g. 'myorg'"
+    echo "  <new-app-name> app name used in paths and display, e.g. 'my-project'"
+  } >&2
   exit 1
 fi
 
@@ -24,11 +26,11 @@ SCOPE="${SCOPE#@}"
 # Prevents Perl regex injection and malformed replacements.
 NAME_RE='^[a-z0-9][a-z0-9-]*$'
 if [[ ! "$SCOPE" =~ $NAME_RE ]]; then
-  echo "Error: <new-scope> must match $NAME_RE (got: '$SCOPE')"
+  echo "Error: <new-scope> must match $NAME_RE (got: '$SCOPE')" >&2
   exit 1
 fi
 if [[ ! "$APP_NAME" =~ $NAME_RE ]]; then
-  echo "Error: <new-app-name> must match $NAME_RE (got: '$APP_NAME')"
+  echo "Error: <new-app-name> must match $NAME_RE (got: '$APP_NAME')" >&2
   exit 1
 fi
 

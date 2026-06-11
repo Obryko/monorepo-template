@@ -76,8 +76,11 @@ jobs:
             ./apps/api/coverage/lcov.info,
             ./apps/web/coverage/lcov.info,
             ./packages/contracts/coverage/lcov.info,
+            ./packages/db/coverage/lcov.info,
             ./packages/env/coverage/lcov.info,
-            ./packages/observability/coverage/lcov.info
+            ./packages/observability/coverage/lcov.info,
+            ./packages/sentry/coverage/lcov.info,
+            ./packages/ui/coverage/lcov.info
           fail_ci_if_error: false
 
   integration:

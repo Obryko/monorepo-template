@@ -7,7 +7,7 @@ if (!DATABASE_URL) throw new Error('DATABASE_URL is required')
 const db = createDb(DATABASE_URL)
 
 try {
-  await db
+  const inserted = await db
     .insert(users)
     .values([
       { email: 'alice@example.com', name: 'Alice' },
@@ -15,8 +15,13 @@ try {
       { email: 'charlie@example.com', name: 'Charlie' },
     ])
     .onConflictDoNothing({ target: users.email })
+    .returning({ id: users.id })
 
-  console.log('Seeded 3 users.')
+  console.log(
+    inserted.length === 0
+      ? 'Seed: 0 users inserted (all already present).'
+      : `Seed: ${inserted.length} user(s) inserted.`,
+  )
 } finally {
   await db.$client.end()
 }

@@ -1,5 +1,5 @@
-import { createDb } from '@monorepo-template/db'
-import { Global, Module } from '@nestjs/common'
+import { createDb, type Db } from '@monorepo-template/db'
+import { Global, Inject, Module, type OnApplicationShutdown } from '@nestjs/common'
 import { env } from '../env.ts'
 
 export const DB_TOKEN = Symbol('DB')
@@ -14,4 +14,10 @@ export const DB_TOKEN = Symbol('DB')
   ],
   exports: [DB_TOKEN],
 })
-export class DatabaseModule {}
+export class DatabaseModule implements OnApplicationShutdown {
+  constructor(@Inject(DB_TOKEN) private readonly db: Db) {}
+
+  async onApplicationShutdown(): Promise<void> {
+    await this.db.$client.end()
+  }
+}

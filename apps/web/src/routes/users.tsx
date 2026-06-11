@@ -1,4 +1,4 @@
-import type { UserList } from '@monorepo-template/contracts'
+import { type UserList, UserListSchema } from '@monorepo-template/contracts'
 import { Card, CardContent, CardHeader, CardTitle } from '@monorepo-template/ui'
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
@@ -14,9 +14,9 @@ function UsersPage() {
 
   useEffect(() => {
     fetch(`${clientEnv.PUBLIC_API_URL}/users`)
-      .then((res) => {
+      .then(async (res) => {
         if (!res.ok) throw new Error('Failed to fetch users')
-        return res.json() as Promise<UserList>
+        return UserListSchema.parse(await res.json())
       })
       .then(setUsers)
       .catch((err: unknown) => setError(err instanceof Error ? err.message : 'Unknown error'))
