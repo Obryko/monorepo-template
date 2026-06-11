@@ -23,6 +23,7 @@ export const env = createEnv({
     OTEL_SERVICE_VERSION: otelServiceVersionSchema,
     THROTTLE_TTL: z.coerce.number().default(60000),
     THROTTLE_LIMIT: z.coerce.number().default(60),
+    DATABASE_URL: z.string().url(),
   },
   runtimeEnv: process.env,
   emptyStringAsUndefined: true,

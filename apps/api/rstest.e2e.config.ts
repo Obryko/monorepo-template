@@ -9,6 +9,9 @@ export default defineConfig({
   testTimeout: 30_000,
   clearMocks: true,
   restoreMocks: true,
+  env: {
+    DATABASE_URL: 'postgresql://postgres:postgres@localhost:5432/postgres',
+  },
   pool: {
     maxWorkers: 1,
   },
