@@ -20,6 +20,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter())
   app.setGlobalPrefix('api', { exclude: ['metrics', 'health', 'api-docs'] })
   app.useGlobalFilters(new AllExceptionsFilter(new Logger()))
+  app.enableShutdownHooks()
 
   const config = new DocumentBuilder().setTitle('API').setVersion('1.0').build()
   const document = SwaggerModule.createDocument(app, config)
