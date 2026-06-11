@@ -114,37 +114,15 @@ Shared dependency versions (biome, typescript, vitest, tsdown, zod, @types/node)
 
 ## Using this as a template
 
-When initializing a new project from this template, rename these locations:
+Run the rename script:
 
-1. **Root `package.json`**: `name` field and `repository.url`
-2. **All `package.json` files** under `apps/` and `packages/`: the `name` field (`@monorepo-template/...` → `@your-scope/...`)
-3. **Cross-references**: `dependencies`/`devDependencies` entries using `workspace:*` with the old scope
-4. **Scripts** in root `package.json`: all `--filter @monorepo-template/...` arguments
-5. **`tsconfig.json` files**: `extends` fields referencing `@monorepo-template/typescript-config`
-6. **`biome.json`**: root extends `@monorepo-template/linter/biome`
-7. **Source imports**: any `from '@monorepo-template/...'` in `.ts`/`.tsx` files
-8. **`pnpm-lock.yaml`**: run `pnpm install` after all renames to regenerate
-9. **`.github/copilot-instructions.md`**: update scope and project description
-10. **`.github/workflows/ci.yml`**: `--filter @monorepo-template/web` reference
-11. **`sonar-project.properties`**: replace `YOUR_GITHUB_ORG` placeholders in `sonar.projectKey` and `sonar.organization` before enabling the `SONAR_ENABLED` repo variable
-12. **App name** (find + replace your project name):
-    - `apps/web/src/env/client.ts` — `PUBLIC_APP_NAME` default value
-    - `apps/web/.env.example` — `PUBLIC_APP_NAME` value
-    - `apps/web/public/manifest.json` — `short_name` and `name` fields
-    - `apps/web/Dockerfile` — `ARG PUBLIC_APP_NAME` default
-    - `docker-compose.yml` — `PUBLIC_APP_NAME` build arg
-
-Quick rename (replace `your-scope` and `your-app-name`):
 ```bash
-# Rename package scope (perl -i works identically on macOS and Linux)
-find . -not -path "*/node_modules/*" -not -path "*/.git/*" \
-  \( -name "*.json" -o -name "*.ts" -o -name "*.tsx" -o -name "*.yml" -o -name "*.md" \) \
-  -exec perl -i -pe 's{\@monorepo-template/}{\@your-scope/}g' {} +
-
-# Rename app display name
-find . -not -path "*/node_modules/*" -not -path "*/.git/*" \
-  \( -name "*.json" -o -name "*.ts" -o -name "*.yml" \) \
-  -exec perl -i -pe 's{monorepo-template}{your-app-name}g' {} +
-
-pnpm install
+./scripts/rename.sh <new-scope> <new-app-name>
+# Example: ./scripts/rename.sh myorg my-project
 ```
+
+The script replaces all `@monorepo-template/` references and `monorepo-template` strings across all source files, then runs `pnpm install` to regenerate the lockfile.
+
+After running, also update manually:
+- `sonar-project.properties` — replace `YOUR_GITHUB_ORG` placeholders
+- `apps/web/public/manifest.json` — `short_name` and `name` fields
