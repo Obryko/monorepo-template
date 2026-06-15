@@ -38,7 +38,7 @@
     "nitro": "npm:nitro-nightly@3.0.1-20260609-125735-da2a75d9",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "tailwindcss": "^4.3.0"
+    "tailwindcss": "^4.3.1"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
