@@ -61,7 +61,7 @@
     "@types/react-dom": "^19.2.3",
 
     "babel-plugin-react-compiler": "^1.0.0",
-    "happy-dom": "^20.10.2",
+    "happy-dom": "^20.10.3",
     "typescript": "catalog:"
   },
   "pnpm": {
