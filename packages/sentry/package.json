@@ -37,8 +37,8 @@
     "@biomejs/biome": "catalog:",
     "@monorepo-template/linter": "workspace:*",
     "@monorepo-template/typescript-config": "workspace:*",
-    "@nestjs/common": "^11.1.26",
-    "@nestjs/core": "^11.1.26",
+    "@nestjs/common": "^11.1.27",
+    "@nestjs/core": "^11.1.27",
     "@rstest/core": "catalog:",
     "@rstest/coverage-istanbul": "catalog:",
     "@types/node": "catalog:",
@@ -47,8 +47,8 @@
     "typescript": "catalog:"
   },
   "peerDependencies": {
-    "@nestjs/common": "^11.1.26",
-    "@nestjs/core": "^11.1.26",
+    "@nestjs/common": "^11.1.27",
+    "@nestjs/core": "^11.1.27",
     "react": "^19.0.0"
   },
   "peerDependenciesMeta": {
