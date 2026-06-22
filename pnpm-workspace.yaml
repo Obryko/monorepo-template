@@ -18,7 +18,7 @@ catalog:
   "@rstest/coverage-istanbul": ^0.10.3
   "@storybook/addon-essentials": ^8.0.0
   "@storybook/react": ^10.4.4
-  "@storybook/react-vite": ^8.0.0
+  "@storybook/react-vite": ^10.4.6
   "@tailwindcss/vite": ^4.0.0
   "@types/node": ^25.9.3
   h3: ^2.0.1-rc.22
