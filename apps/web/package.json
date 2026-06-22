@@ -47,7 +47,7 @@
     "@monorepo-template/typescript-config": "workspace:*",
     "@playwright/test": "^1.60.0",
     "@rsbuild/core": "^2.0.10",
-    "@rsbuild/plugin-babel": "^1.2.1",
+    "@rsbuild/plugin-babel": "^2.0.0",
     "@rsbuild/plugin-react": "^2.0.1",
     "@rstest/core": "catalog:",
     "@rstest/coverage-istanbul": "catalog:",
