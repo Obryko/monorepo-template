@@ -45,7 +45,7 @@
     "@module-federation/rsbuild-plugin": "^2.5.0",
     "@monorepo-template/linter": "workspace:*",
     "@monorepo-template/typescript-config": "workspace:*",
-    "@playwright/test": "^1.60.0",
+    "@playwright/test": "^1.61.0",
     "@rsbuild/core": "^2.0.10",
     "@rsbuild/plugin-babel": "^1.2.1",
     "@rsbuild/plugin-react": "^2.0.1",
@@ -61,7 +61,7 @@
     "@types/react-dom": "^19.2.3",
 
     "babel-plugin-react-compiler": "^1.0.0",
-    "happy-dom": "^20.10.3",
+    "happy-dom": "^20.10.6",
     "typescript": "catalog:"
   },
   "pnpm": {
