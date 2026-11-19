@@ -2,13 +2,13 @@ version: 2
 
 updates:
   - package-ecosystem: npm
+    open-pull-requests-limit: 0
     directory: /
     schedule:
       interval: weekly
       day: monday
       time: "08:00"
       timezone: Europe/Warsaw
-    open-pull-requests-limit: 10
     versioning-strategy: increase
     groups:
       tanstack:
@@ -43,10 +43,10 @@ updates:
           - lint-staged
 
   - package-ecosystem: github-actions
+    open-pull-requests-limit: 0
     directory: /
     schedule:
       interval: weekly
       day: monday
       time: "08:30"
       timezone: Europe/Warsaw
-    open-pull-requests-limit: 5
